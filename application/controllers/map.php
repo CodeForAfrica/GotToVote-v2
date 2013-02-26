@@ -40,8 +40,15 @@ class Map extends CI_Controller {
 		$this->db->where('countyid',$countyid);
 		$result = $this->db->get('county');
 		$result = $result->result_array()[0];
-		$data['registered_voters'] = $result['registered'];
-		$data['county_name'] = $result['name'];
+		$countyinfo['registered_voters'] = $result['registered'];
+		$countyinfo['county_name'] = $result['name'];
+		$data['countyinfo'] = $countyinfo;
+		
+		//find gurbernatorial aspirants
+		$this->db->where('county', $countyid);
+		$result = $this->db->get('gurbernatorial_candidates');
+		//$re
+		
 		$this->load->view('aspirants', $data);
 	}
 }

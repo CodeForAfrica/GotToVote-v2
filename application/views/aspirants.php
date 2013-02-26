@@ -1,4 +1,4 @@
 <?php
-	print "<h1>".$county_name."</h1>";
-	print "registered voters: ".$registered_voters;
+	print "<h1>".$countyinfo['county_name']."</h1>";
+	print "registered voters: ".$countyinfo['registered_voters'];
 ?>
