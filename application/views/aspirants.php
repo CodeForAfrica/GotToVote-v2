@@ -11,4 +11,26 @@
 		print $candidate['name'];
 		print "</p>";
 	}
+	
+	print "<h1>Senatorial Candidates";
+	foreach($senatorial_aspirants as $candidate){
+		print "<p>";
+		print "<h5>". $candidate['surname']." ".$candidate['other_name'];
+		print "</h5><br>Running mate:";
+		print $candidate['running_mate'];
+		print "<br>";
+		print $candidate['name'];
+		print "</p>";
+	}
+	
+	print "<h1>Womenrep Candidates";
+	foreach($womenrep_aspirants as $candidate){
+		print "<p>";
+		print "<h5>". $candidate['surname']." ".$candidate['other_name'];
+		print "</h5><br>Running mate:";
+		print $candidate['running_mate'];
+		print "<br>";
+		print $candidate['name'];
+		print "</p>";
+	}
 ?>

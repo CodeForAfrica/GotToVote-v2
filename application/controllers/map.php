@@ -55,6 +55,30 @@ class Map extends CI_Controller {
 		$result = $this->db->get();
 
 		$data['gurbernatorial_aspirants'] = $result->result_array();
+		
+		//find senatorial aspirants
+		$this->db->select('senatorial_candidates.surname, 
+                   senatorial_candidates.other_name, 
+                   senatorial_candidates.running_mate,   
+                   parties.name');
+		$this->db->from('senatorial_candidates');
+		$this->db->where('countyid',$countyid);
+		$this->db->join('parties', 'senatorial_candidates.party= parties.id');
+		$result = $this->db->get();
+
+		$data['senatorial_aspirants'] = $result->result_array();
+		
+		//find womenrep aspirants
+		$this->db->select('womenrep_candidates.surname, 
+                   womenrep_candidates.other_name, 
+                   womenrep_candidates.running_mate,   
+                   parties.name');
+		$this->db->from('womenrep_candidates');
+		$this->db->where('countyid',$countyid);
+		$this->db->join('parties', 'womenrep_candidates.party= parties.id');
+		$result = $this->db->get();
+
+		$data['womenrep_aspirants'] = $result->result_array();
 
 		$this->load->view('aspirants', $data);
 	}
