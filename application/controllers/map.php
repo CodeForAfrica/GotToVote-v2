@@ -20,7 +20,15 @@ class Map extends CI_Controller {
 	public function index()
 	{	
 		//show presidential aspirants before county selected
-		$result = $this->db->get('presidential_candidates');
+		$this->db->select('presidential_candidates.surname, 
+                   presidential_candidates.other_name, 
+                   presidential_candidates.running_mate,   
+                   parties.name');
+		$this->db->from('presidential_candidates');
+		$this->db->join('parties', 'presidential_candidates.party= parties.id');
+		$result = $this->db->get();
+
+		//$result = $this->db->get('presidential_candidates');
 		$data['presidential_aspirants'] = $result->result_array();
 		$this->load->view('map', $data);
 	}

@@ -176,6 +176,8 @@
 		echo "<h3>". $candidate['surname']." ".$candidate['other_name'];
 		echo "</h3><br>Running mate:";
 		echo $candidate['running_mate'];
+		echo "<br>";
+		echo $candidate['name'];
 		echo "</p>";
 	}
 ?>
