@@ -25,7 +25,14 @@ class Map extends CI_Controller {
 	}
 	public function process()
 	{
+		$this->load->database();
 		$countyid = $_POST['countyid'];
+		//find county information
+		$sql = mysql_query("SELECT * FROM county WHERE countyid='$countyid'");
+		$row = mysql_fetch_array($sql);
+		$data['registered_voters'] = $row['registered'];
+		$data['county_name'] = $row['name'];
+		$this->load->view('aspirants', $data);
 	}
 }
 
