@@ -171,6 +171,7 @@
 <div id="context">
 
 <?php
+//show presidential candidates before county is selected
 	foreach($presidential_aspirants as $candidate){
 		echo "<p>";
 		echo "<h3>". $candidate['surname']." ".$candidate['other_name'];
