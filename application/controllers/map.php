@@ -18,14 +18,13 @@ class Map extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		
-		$this->load->view('map');
+	{	
+				$this->load->view('map');
 		
 	}
 	public function process()
 	{
-		$this->load->database();
+		
 		$countyid = $_POST['countyid'];
 		//find county information
 		$sql = mysql_query("SELECT * FROM county WHERE countyid='$countyid'");
