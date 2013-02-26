@@ -170,7 +170,15 @@
 <script type="text/javascript">document.getElementById("loading").style.display = 'none';</script>
 <div id="context">
 
-presidential candidates
+<?php
+	foreach($presidential_aspirants as $candidate){
+		echo "<p>";
+		echo "<h3>". $candidate['surname']." ".$candidate['other_name'];
+		echo "</h3><br>Running mate:";
+		echo $candidate['running_mate'];
+		echo "</p>";
+	}
+?>
 
 </div>
 

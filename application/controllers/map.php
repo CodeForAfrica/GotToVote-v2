@@ -19,18 +19,21 @@ class Map extends CI_Controller {
 	 */
 	public function index()
 	{	
-				$this->load->view('map');
-		
+		//show presidential aspirants before county selected
+		$result = $this->db->get('presidential_candidates');
+		$data['presidential_aspirants'] = $result->result_array();
+		$this->load->view('map', $data);
 	}
 	public function process()
 	{
 		
 		$countyid = $_POST['countyid'];
 		//find county information
-		$sql = mysql_query("SELECT * FROM county WHERE countyid='$countyid'");
-		$row = mysql_fetch_array($sql);
-		$data['registered_voters'] = $row['registered'];
-		$data['county_name'] = $row['name'];
+		$this->db->where('countyid',$countyid);
+		$result = $this->db->get('county');
+		$result = $result->result_array()[0];
+		$data['registered_voters'] = $result['registered'];
+		$data['county_name'] = $result['name'];
 		$this->load->view('aspirants', $data);
 	}
 }
