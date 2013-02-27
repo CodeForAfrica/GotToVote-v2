@@ -185,7 +185,7 @@
 			</td></tr></thead>
 			<tbody id="reg-centres">
 				<tr><td>
-					<p><img src="img/spinner.gif" alt="" />
+					<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" />
 						Finding registration centres...
 					</p>
 				</td></tr>

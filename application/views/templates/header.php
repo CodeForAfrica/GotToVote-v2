@@ -31,25 +31,14 @@
         
         <div class="container-narrow">
                 	<div class="masthead">
-                		<ul class="nav nav-pills pull-right">
-                			<li class="dropdown active">
-                				<a class="dropdown-toggle" data-toggle="dropdown"href="#">Home
-                					<b class="caret"></b></a>
-                				<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" style="margin-top: 0;">
-                					<li><a href="<?php echo base_url(); ?>">Home</a></li>
-                					<li><a href="<?php echo base_url(); ?>about">About</a></li>
-                					<li class="divider"></li>
-                					<li><a href="http://nimeregister.com/" target="_blank"><i class="icon-ok"></i> Nimeregister</a></li>
-                					<li class="divider"></li>
-                					<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank">Downloads</a></li>
-                				</ul>
-                			</li>
-                		</ul>
-                		<div class="btn-group pull-right">
-                			
-                		</div>
-                		<!--<h3 class="muted">Got To Vote! Ke</h3>-->
                 		<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
+                		<ul class="nav nav-pills pull-right">
+                			<li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
+                			<li><a href="<?php echo base_url(); ?>about">About</a></li>
+                			<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank">Downloads</a></li>
+                		</ul>
                 	</div>
+                	
+                	<div class="clearfix"></div>
                 	
                 	<hr>

@@ -29,7 +29,7 @@
 }
 
 .bgLayer {
-    background-image:url("/img/clock_bg.png");
+    background-image:url("../img/clock_bg.png");
     width:122px;
     height:122px;
     background-repeat: no-repeat;
