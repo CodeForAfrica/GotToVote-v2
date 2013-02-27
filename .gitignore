@@ -1,7 +1,7 @@
 *.DS_Store
 
 # Security Purposes
-*/application/config/database.php
+*/config/database.php
 
 # Code Igniter Ignore
 */config/development
