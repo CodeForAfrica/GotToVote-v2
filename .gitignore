@@ -4,3 +4,4 @@
 */cache/*
 */cache/!index.html
 */application/config/database.php
+*.project
