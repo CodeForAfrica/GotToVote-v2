@@ -53,41 +53,10 @@
 	<div class="clearfix"></div>
 	<p class="lead"></p>
 	
-	<a class="btn btn-large btn-info" href="#" id="smslink" onclick="$('#sms').scrollTop();"><i class="icon-envelope icon-white"></i> Share Peace Message <small>via SMS!</small></a>
 	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+	<a class="btn btn-large btn-inverse" href="http://nimeregister.co.ke" target="_blank">
+		<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px; margin-top: -5px;" /> Nimeregister</a>
 	
-</div>
-
-<a name="sms" id="sms"></a>
-
-<hr style="margin: 50px 0;"/>
-
-<div style="text-align: center;">
-	<h1>Share Peace Message via SMS!</h1>
-	<p class="lead">Fill the form below and share the peace message via SMS for FREE!</p>
-		
-	<div>
-		<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;">
-			<button type="button" class="btn active" onclick="javascript:$('#smsCarousel').carousel(0);">
-				<i class="icon-list-alt"></i> <b>SMS Details</b></button>
-			<button type="button" class="btn" onclick="javascript:$('#smsCarousel').carousel(1);">
-				<i class="icon-unlock"></i> <b>Confirmation Code</b></button>
-		</div>
-	</div>
-	
-	<div id="smsCarousel" class="carousel slide">
-		
-		<!-- Carousel items -->
-		<div class="carousel-inner">
-			<div class="active item">
-				<h3>SMS Details</h3>
-			</div>
-			<div class="item">
-				<h3>Confirmation Code</h3>
-			</div>
-		</div>
-		
-	</div>
 </div>
 
 <a name="find" id="find"></a>
