@@ -53,9 +53,41 @@
 	<div class="clearfix"></div>
 	<p class="lead"></p>
 	
-	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See Your Aspirants</a>
-	<a class="btn btn-large btn-inverse" href="http://nimeregister.com" target="_blank">
-		<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px; margin-top: -5px;" /> Nimeregister</a>
+	<a class="btn btn-large btn-info" href="#" id="smslink" onclick="$('#sms').scrollTop();"><i class="icon-envelope icon-white"></i> Share Peace Message <small>via SMS!</small></a>
+	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+	
+</div>
+
+<a name="sms" id="sms"></a>
+
+<hr style="margin: 50px 0;"/>
+
+<div style="text-align: center;">
+	<h1>Share Peace Message via SMS!</h1>
+	<p class="lead">Fill the form below and share the peace message via SMS for FREE!</p>
+		
+	<div>
+		<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;">
+			<button type="button" class="btn active" onclick="javascript:$('#smsCarousel').carousel(0);">
+				<i class="icon-list-alt"></i> <b>SMS Details</b></button>
+			<button type="button" class="btn" onclick="javascript:$('#smsCarousel').carousel(1);">
+				<i class="icon-unlock"></i> <b>Confirmation Code</b></button>
+		</div>
+	</div>
+	
+	<div id="smsCarousel" class="carousel slide">
+		
+		<!-- Carousel items -->
+		<div class="carousel-inner">
+			<div class="active item">
+				<h3>SMS Details</h3>
+			</div>
+			<div class="item">
+				<h3>Confirmation Code</h3>
+			</div>
+		</div>
+		
+	</div>
 </div>
 
 <a name="find" id="find"></a>
@@ -110,10 +142,10 @@
 	
 	<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
 		<div class="span5">
-			<h1><i class="icon-group"></i> Your Aspirants</h1>
+			<h1><i class="icon-group"></i> The Candidates</h1>
 			<br />
 			<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
-			<p class="lead">Select a county from the map and see the aspirants from Governor, Senator and Women Representative.</p>
+			<p class="lead">Select a county from the map and see the candidates from Governor, Senator and Women Representative.</p>
 			
 		</div>
 		<div class="span7">
@@ -303,9 +335,9 @@
 	<h3>Share GotToVote.co.ke</h3>
 	<p> 
 	<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
-	onClick='window.open("http://twitter.com/intent/tweet?text=Register+as+a+voter+today%21+Find+your+registration+center+on+http%3A%2F%2Fgottovote.co.ke+%23GotToVote","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter" /></a>
+	onClick='window.open("http://twitter.com/intent/tweet?text=Kenya+decides%21+Share+the+peace+message+and+find+your+candidates+on+http%3A%2F%2Fgottovote.co.ke+%23GotToVote","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter" /></a>
 	<a href="javascript:void(0);" name="Share_FB" title="Share on FB | GotToVote! Ke"
-	onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgottovote.co.ke%2F&t=Register+as+a+voter+today!+Find+a+registration+center+on+GotToVote.","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook" /></a>
+	onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgottovote.co.ke%2F&t=Kenya+decides%21+Share+the+peace+message+and+find+your+candidates+on+GotToVote.","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook" /></a>
 	<a href="https://plus.google.com/share?url=gottovote.co.ke" onclick="javascript:window.open(this.href,
 	  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="<?php echo base_url(); ?>assets/img/social/googleplus.png" alt="Share on Google Plus" /></a>
 	</p>
@@ -350,6 +382,12 @@
 	});
 </script>
 
+<script type="text/javascript">
+	$('#smsCarousel').carousel({
+	  interval: false
+	})
+</script>
+
 <!-- Scroll -->
 <script type="text/javascript">
 	function goToByScroll(id){
@@ -362,6 +400,12 @@
 	}
 	
 	$("#findlink").click(function(e) { 
+	      // Prevent a page reload when a link is pressed
+	    e.preventDefault(); 
+	      // Call the scroll function
+	    goToByScroll($(this).attr("id"));           
+	});
+	$("#smslink").click(function(e) { 
 	      // Prevent a page reload when a link is pressed
 	    e.preventDefault(); 
 	      // Call the scroll function

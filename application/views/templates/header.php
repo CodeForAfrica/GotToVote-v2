@@ -8,7 +8,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>GotToVote | <?php echo $title; ?></title>
-        <meta name="description" content="">
+        <meta name="description" content="Kenya Decides! Find your candidates and share the peace message.">
+        <meta name="keywords" content="Kenya, elections, 2013, candidates, president, Got To Vote, governor, county, senator, women representative, kenyan elections, SMS Peace" />
+        <meta name="author" content="Open Institute" />
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -26,6 +28,7 @@
         
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.9.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script>
         
     </head>
     <body>
@@ -37,9 +40,11 @@
                 	<div class="masthead">
                 		<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
                 		<ul class="nav nav-pills pull-right">
-                			<li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
+                			<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
                 			<!--<li><a href="<?php echo base_url(); ?>about">About</a></li>-->
-                			<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank">Downloads</a></li>
+                			<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank" style="line-height: 20px;">Downloads</a></li>
+                			<li><a href="http://nimeregister.com" target="_blank">
+                				<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px;" /> Nimeregister</a></li>
                 		</ul>
                 	</div>
                 	
