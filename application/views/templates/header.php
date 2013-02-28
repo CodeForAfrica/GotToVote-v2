@@ -38,7 +38,7 @@
                 		<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
                 		<ul class="nav nav-pills pull-right">
                 			<li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
-                			<li><a href="<?php echo base_url(); ?>about">About</a></li>
+                			<!--<li><a href="<?php echo base_url(); ?>about">About</a></li>-->
                 			<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank">Downloads</a></li>
                 		</ul>
                 	</div>
