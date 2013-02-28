@@ -8,10 +8,6 @@
 */logs/log-*.php
 */logs/!index.html
 */cache/*
-<<<<<<< HEAD
 */cache/!index.html
 */application/config/database.php
 *.project
-=======
-*/cache/!index.html
->>>>>>> Added gitignore
