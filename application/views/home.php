@@ -153,6 +153,10 @@
 		</div>
 	</div>
 	
+	<div id="loading" align='center'>
+		<img src='<?php echo base_url(); ?>assets/img/loader.gif'>
+	</div>
+	<script type="text/javascript">document.getElementById("loading").style.display = 'none';</script>
 
 	<div id="context" style="text-align: left;">
 		<h2>Presidential Candidates</h2>
@@ -182,24 +186,9 @@
 	
 	</div>
 	
-	
-	
-	<br />
-	
-	<div>
-		<div id="loading" align='center'>
-			<img src='<?php echo base_url(); ?>assets/img/loader.gif'>
-		</div>
-		<script type="text/javascript">document.getElementById("loading").style.display = 'none';</script>
-		<div id="context" style="text-align: left;">
-			
-		</div>
-	</div>
-	
-	
 	<script src="<?php echo base_url(); ?>assets/js/ajax_request.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties.geojson"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
 	
 	<script type="text/javascript">
 

@@ -39,7 +39,7 @@
 				<?php foreach($gurbernatorial_aspirants as $candidate){ ?>
 					<div class="span4">
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
-						<p><?php echo $candidate['name']; ?></p>
+						<small><?php echo $candidate['name']; ?></small>
 						<p><b>Running mate: </b> <?php echo $candidate['running_mate']; ?></p>
 						<hr />
 					</div>
@@ -51,7 +51,7 @@
 				<?php foreach($senatorial_aspirants as $candidate){ ?>
 					<div class="span4">
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
-						<p><?php echo $candidate['name']; ?></p>
+						<small><?php echo $candidate['name']; ?></small>
 						<hr />
 					</div>
 				<?php } ?>
@@ -62,7 +62,7 @@
 				<?php foreach($womenrep_aspirants as $candidate){ ?>
 					<div class="span4">
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
-						<p><?php echo $candidate['name']; ?></p>
+						<small><?php echo $candidate['name']; ?></small>
 						<hr />
 					</div>
 				<?php } ?>
