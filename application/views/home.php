@@ -53,159 +53,246 @@
 	<div class="clearfix"></div>
 	<p class="lead"></p>
 	
-	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();">Confirm Registration</a>
+	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See Your Aspirants</a>
 	<a class="btn btn-large btn-inverse" href="http://nimeregister.com" target="_blank">
 		<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px; margin-top: -5px;" /> Nimeregister</a>
 </div>
 
-<hr />
-<div class="row-fluid marketing">
-	<div class="span6">
-		<h4>What is voter registration?</h4>
-		<p>Voter registration is the process of entering details of qualified persons including their National Identity Card or Passport numbers in a register or list of voters.</p>
-		
-		<h4>Who qualifies to register as a voter?</h4>
-		<p>In order to qualify as a voter, one must:</p>
-		<ul>
-			<li><p>Be a Kenyan citizen</p></li>
-			<li><p>Be 18 years old and above</p></li>
-		</ul>
-		
-		<h4>Can a person transfer as a voter to another registration centre or constituency?</h4>
-		<p>YES! A person may transfer as a voter to another registration centre within the constituency or outside the constituency. The person is required to present himself/ herself to the particular registration centre or constituency if he/she meets the requirements.</p>
-		
-	</div>
-	<div class="span6">
-		<h4>Why register as a voter?</h4>
-		<p>Registering as a voter will give you the opportunity to elect leaders for your country at the national and county levels. You can only participate in elections if you are a registered voter. It is your right and duty as a responsible citizen to elect your leaders.</p>
-		
-		<h4>Where can you register as a voter?</h4>
-		<p>You can register as a voter at any designated voter registration within the county assembly ward or the constituency where you wish to vote.</p>
-		
-		<h4>What is the role of a voter in ensuring the register is accurate?</h4>
-		<p>It is the responsibility of each registered voter to inspect the register and inform the registration officers of any corrections they wish made in the register of voters on their particulars.</p>
-	</div>
-</div>
-
-<!--
-   	<table align="center"><tr><td>
-   		<ul class="nav nav-pills" style="display: inline-block;">
-   			<li><a href="#" id="see_more">See more...</a></li>
-   		</ul>
-   	</td></tr></table>-->
-
-
-
-<hr />
-
-
-<div id="find-reg" style="text-align: center;">
-	<h2>Find Your Registration Centre!</h2>
-
-	<div class="row-fluid marketing" style="margin-top: 20px; margin-bottom: 10px;">
-		<div class="span4">
-			<div>
-				<p class="lead">County</p>
-				<select id="county_select">
-				
-				
-					<option value="0">Select a County</option>
-					<option value="30">Baringo</option>
-					<option value="36">Bomet</option>
-					<option value="39">Bungoma</option>
-					<option value="40">Busia</option>
-					<option value="28">Elgeyo/Marakwet</option>
-					<option value="14">Embu</option>
-					<option value="7">Garissa</option>
-					<option value="43">Homa Bay</option>
-					<option value="11">Isiolo</option>
-					<option value="34">Kajiado</option>
-					<option value="37">Kakamega</option>
-					<option value="35">Kericho</option>
-					<option value="22">Kiambu</option>
-					<option value="3">Kilifi</option>
-					<option value="20">Kirinyaga</option>
-					<option value="45">Kisii</option>
-					<option value="42">Kisumu</option>
-					<option value="15">Kitui</option>
-					<option value="2">Kwale</option>
-					<option value="31">Laikipia</option>
-					<option value="5">Lamu</option>
-					<option value="16">Machakos</option>
-					<option value="17">Makueni</option>
-					<option value="9">Mandera</option>
-					<option value="10">Marsabit</option>
-					<option value="12">Meru</option>
-					<option value="44">Migori</option>
-					<option value="1">Mombasa</option>
-					<option value="21">Murang'a</option>
-					<option value="47">Nairobi</option>
-					<option value="32">Nakuru</option>
-					<option value="29">Nandi</option>
-					<option value="33">Narok</option>
-					<option value="46">Nyamira</option>
-					<option value="18">Nyandarua</option>
-					<option value="19">Nyeri</option>
-					<option value="25">Samburu</option>
-					<option value="41">Siaya</option>
-					<option value="6">Taita Taveta</option>
-					<option value="4">Tana River</option>
-					<option value="13">Tharaka - Nithi</option>
-					<option value="26">Trans Nzoia</option>
-					<option value="23">Turkana</option>
-					<option value="27">Uasin Gishu</option>
-					<option value="38">Vihiga</option>
-					<option value="8">Wajir</option>
-					<option value="24">West Pokot</option>
-				</select>
-			</div>
-		</div>
-		<div class="span4">
-			<div style="text-align: center;">
-				<p class="lead">Constituency</p>
-				<select id="const_select">
-					<option value="0">- Select a County First -</option>
-				</select>
-			</div>
-		</div>
-		<div class="span4">
-			<div style="text-align: center;">
-				<p class="lead">Ward</p>
-				<select id="ward_select">
-					<option value="0">- Select a County First -</option>
-				</select>
-			</div>
-		</div>
-	</div>
-	
-	<div id="found-reg" style="display: none;">
-		<table class="table table-hover" style="margin-bottom: 0;">
-			<thead><tr><td>
-				<h4>Registration Centres in <span id="header-name"> County</span></h4>
-			</td></tr></thead>
-			<tbody id="reg-centres">
-				<tr><td>
-					<p><img src="<?php echo base_url(); ?>assets/img/spinner.gif" alt="" />
-						Finding registration centres...
-					</p>
-				</td></tr>
-			</tbody>
-		</table>
-	</div>
-	
-</div>
-
-<a name="find" id="find"></a>
-<hr style="margin: 60px 0;" />
+<hr style="margin: 50px 0;"/>
 
 <div style="text-align: center;">
-	<!--<h2>Confirm Registration <small><a href="http://vote.iebc.or.ke" target="_blank">IEBC</a></small></h2>-->
 	
-	<iframe src="http://vote.iebc.or.ke/confirm/mobile/" width="100%" height="552" frameborder="0" scrolling="Yes" rightmargin="0" bottommargin="0" topmargin="0" leftmargin="0" marginwidth="0" allowtransparency="allowtransparency" border="0" marginheight="0"></iframe>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/leaflet.ie.css" /><![endif]-->
 	
-	<!--<p id="iebcMap"><a href="javascript:showMap();" class="btn btn-large" style="margin-top: 10px;">
-		<i class="icon-globe" style="margin-top: 4px;"></i>
-		Show Map <i class="icon-globe" style="margin-top: 4px;"></i></a></p>-->
+	<style>
+		#map {
+			/*width: inherit;*/
+			/*height: 500px;*/
+			min-height: 500px;
+			height: 100%;
+			border-radius: 10px !important;
+		}
+		
+				.info {
+					padding: 6px 8px;
+					font: 14px/16px Arial, Helvetica, sans-serif;
+					background: white;
+					background: rgba(255,255,255,0.8);
+					box-shadow: 0 0 15px rgba(0,0,0,0.2);
+					border-radius: 5px;
+				}
+				.info h4 {
+					margin: 0 0 5px;
+					color: #777;
+				}
+		
+				.legend {
+					text-align: left;
+					line-height: 18px;
+					color: #555;
+				}
+				.legend i {
+					width: 18px;
+					height: 18px;
+					float: left;
+					margin-right: 8px;
+					opacity: 0.7;
+		}
+		
+		#content p{
+			margin-bottom: 0;
+		}
+	</style>
+	
+	<a name="find" id="find"></a>
+	<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
+		<div class="span5">
+			<h1><i class="icon-group"></i> Your Aspirants</h1>
+			<br />
+			<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
+			<p class="lead">Select a county from the map and see the aspirants from Governor, Senator and Women Representative.</p>
+			
+		</div>
+		<div class="span7">
+			<div id="map"></div>
+		</div>
+	</div>
+	
+
+	<div id="context" style="text-align: left;">
+		<h2>Presidential Candidates</h2>
+		<div class="row">
+				<?php
+					$i = 1; 
+					foreach($presidential_aspirants as $candidate){ ?>
+					<div class="span4">
+						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+						<small><?php echo $candidate['name']; ?></small>
+						<p><b>Running Mate: </b> <?php echo $candidate['running_mate']; ?></p>
+					
+				<?php 
+						if ($i==3 || $i==6) {
+							echo '<hr /></div>';
+							echo '</div><div class="row" style="display: inline-block;">';
+						} else {
+							if ($i==8) {
+								echo '</div>';
+							} else {
+								echo '<hr /></div>';
+							}
+						}
+						$i++;
+					} ?>
+		</div>
+	
+	</div>
+	
+	
+	
+	<br />
+	
+	<div>
+		<div id="loading" align='center'>
+			<img src='<?php echo base_url(); ?>assets/img/loader.gif'>
+		</div>
+		<script type="text/javascript">document.getElementById("loading").style.display = 'none';</script>
+		<div id="context" style="text-align: left;">
+			
+		</div>
+	</div>
+	
+	
+	<script src="<?php echo base_url(); ?>assets/js/ajax_request.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties.geojson"></script>
+	
+	<script type="text/javascript">
+
+		var map = L.map('map').setView([-0.06592, 38.10059], 6);
+
+		var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+			key: 'BC9A493B41014CAABB98F0471D759707',
+			styleId: 22677
+		}).addTo(map);
+
+
+		// control that shows state info on hover
+		var info = L.control();
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+
+		info.update = function (props) {
+			this._div.innerHTML = '<h4>Voter Registration per County</h4>' +  (props ?
+				'<b>' + props.COUNTY_NAM + '</b>: ' + props.REG : 'Hover over a county');
+		};
+
+		info.addTo(map);
+
+
+		// get color depending on population density value
+		function getColor(d) {
+			return d > 1000000 ? '#000000' :
+				   d > 500000 ? '#800026' :
+			       d > 300000  ? '#BD0026' :
+			       d > 250000  ? '#E31A1C' :
+			       d > 200000  ? '#FC4E2A' :
+			       d > 150000   ? '#FD8D3C' :
+			       d > 120000   ? '#FEB24C' :
+			       d > 100000   ? '#FED976' :
+			                  '#FFEDA0';
+		}
+
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.REG)
+			};
+		}
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+		}
+
+		var geojson;
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+			var layer = e.target;
+			
+			ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', layer.feature.properties.OBJECTID);
+		}
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+		geojson = L.geoJson(countyData,{
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+
+		map.attributionControl.addAttribution('Electoral data &copy; <a href="http://iebc.or.ke/">IEBC</a>');
+
+
+		var legend = L.control({position: 'bottomright'});
+
+		legend.onAdd = function (map) {
+
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [0, 100000, 120000, 150000, 200000, 250000, 300000, 500000, 1000000],
+				labels = [],
+				from, to;
+
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+
+			div.innerHTML = labels.join('<br>');
+			return div;
+		};
+
+		legend.addTo(map);
+
+	</script>
+	
+	
 </div>
 
 <hr style="margin-top: 90px;"/>
@@ -263,7 +350,6 @@
 
 
 <!-- Find Registration Centre -->
-<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script type="text/javascript">
  	function showMap() {
  		$('#iebcMap').fadeOut('slow');

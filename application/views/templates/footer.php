@@ -1,5 +1,6 @@
 
         <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

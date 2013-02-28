@@ -7,7 +7,7 @@
     
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>GotToVote | </title>
+        <title>GotToVote | <?php echo $title; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css">
+        <!--[if IE 7]>
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome-ie7.min.css">
+        <![endif]-->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         
         <script src="<?php echo base_url(); ?>assets/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -29,7 +33,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <div class="container-narrow">
+        <div class="container">
                 	<div class="masthead">
                 		<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
                 		<ul class="nav nav-pills pull-right">
