@@ -1,5 +1,13 @@
+*.DS_Store
+
+# Security Purposes
+*/config/database.php
+
+# Code Igniter Ignore
 */config/development
 */logs/log-*.php
 */logs/!index.html
 */cache/*
 */cache/!index.html
+*/application/config/database.php
+*.project
