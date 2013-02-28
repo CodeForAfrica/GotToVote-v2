@@ -249,7 +249,7 @@
 			map.fitBounds(e.target.getBounds());
 			var layer = e.target;
 			
-			ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', layer.feature.properties.OBJECTID);
+			ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', layer.feature.properties.OBJECTID_1);
 		}
 
 		function onEachFeature(feature, layer) {
