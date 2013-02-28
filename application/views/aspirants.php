@@ -3,7 +3,7 @@
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 	<ul class="nav nav-tabs">
-		<li><a href="#tab1" data-toggle="tab"><h4 style="margin: 0;">Governor Candidates</h4></a></li>
+		<li><a href="#tab1" data-toggle="tab"><h4 style="margin: 0;">Presidential Candidates</h4></a></li>
 		<li class="active"><a href="#tab2" data-toggle="tab"><h4 style="margin: 0;">Governor Candidates</h4></a></li>
 		<li><a href="#tab3" data-toggle="tab"><h4 style="margin: 0;">Senator Candidates</h4></a></li>
 		<li><a href="#tab4" data-toggle="tab"><h4 style="margin: 0;">Women Rep Candidates</h4></a></li>

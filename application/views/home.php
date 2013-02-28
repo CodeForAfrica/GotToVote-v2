@@ -58,6 +58,8 @@
 		<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px; margin-top: -5px;" /> Nimeregister</a>
 </div>
 
+<a name="find" id="find"></a>
+
 <hr style="margin: 50px 0;"/>
 
 <div style="text-align: center;">
@@ -105,7 +107,7 @@
 		}
 	</style>
 	
-	<a name="find" id="find"></a>
+	
 	<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
 		<div class="span5">
 			<h1><i class="icon-group"></i> Your Aspirants</h1>
@@ -348,6 +350,24 @@
 	});
 </script>
 
+<!-- Scroll -->
+<script type="text/javascript">
+	function goToByScroll(id){
+	      // Remove "link" from the ID
+	    id = id.replace("link", "");
+	      // Scroll
+	    $('html,body').animate({
+	        scrollTop: $("#"+id).offset().top},
+	        'slow');
+	}
+	
+	$("#findlink").click(function(e) { 
+	      // Prevent a page reload when a link is pressed
+	    e.preventDefault(); 
+	      // Call the scroll function
+	    goToByScroll($(this).attr("id"));           
+	});
+</script>
 
 <!-- Find Registration Centre -->
 <script type="text/javascript">
