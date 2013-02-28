@@ -44,7 +44,8 @@ class Home extends CI_Controller {
 			//find county information
 			$this->db->where('countyid',$countyid);
 			$result = $this->db->get('county');
-			$result = $result->result_array()[0];
+			$result = $result->result_array();
+			$result = $result[0];
 			$countyinfo['registered_voters'] = $result['registered'];
 			$countyinfo['county_name'] = $result['name'];
 			$data['countyinfo'] = $countyinfo;
