@@ -36,18 +36,18 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         
-        <div class="container">
-                	<div class="masthead">
-                		<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
-                		<ul class="nav nav-pills pull-right">
-                			<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
-                			<!--<li><a href="<?php echo base_url(); ?>about">About</a></li>-->
-                			<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank" style="line-height: 20px;">Downloads</a></li>
-                			<li><a href="http://nimeregister.com" target="_blank">
-                				<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px;" /> Nimeregister</a></li>
-                		</ul>
-                	</div>
+        <div style="padding: 10px 0 5px; border-bottom: 1px solid #e5e5e5;">
+        	<div class="container">
+        		<div class="masthead">
+        			<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
+        			<ul class="nav nav-pills pull-right">
+        				<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
+        				<!--<li><a href="<?php echo base_url(); ?>about">About</a></li>-->
+        				<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank" style="line-height: 20px;">Downloads</a></li>
+        				<li><a href="http://nimeregister.com" target="_blank">
+        					<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px;" /> Nimeregister</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        </div>
                 	
-                	<div class="clearfix"></div>
-                	
-                	<hr>

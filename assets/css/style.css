@@ -11,13 +11,9 @@
  * URI: http://davidlemayian.com
  *
  */
- 
-body {
- 	padding: 20px 20px 40px;
-}
 
 .masthead ul{
-	margin-top: 23px;
+	margin-top: 20px;
 }
 .masthead img{
 	height: 60px;
