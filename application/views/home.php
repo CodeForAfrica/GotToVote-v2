@@ -26,7 +26,7 @@
 						<div class="active item">
 							<div class="row">
 								<div class="span7">
-									<form action="<?php echo base_url(); ?>sms/sendsms" method="POST" id="sendsms">
+									<form id="smsDetailsForm">
 										<fieldset>
 											<legend>SMS Details</legend>
 											<div class="row">
@@ -70,7 +70,7 @@
 														</div>
 														<div class="clearfix"></div>
 														<br />
-														<a href="#" class="btn btn-large btn-info" onclick="sendsms.submit();><i class="icon-envelope-alt"></i> Send SMS</a>
+														<a href="#" class="btn btn-large btn-info" onclick="javascript:sendSMS();"><i class="icon-envelope-alt"></i> Send SMS</a>
 													</div>
 												</div>
 											</div>
@@ -475,6 +475,15 @@
 	
 	function sendSMS() {
 		checkRequired();
+		var sendSMSform = $('#smsDetailsForm');
+		$.ajax( {
+			type: "POST",
+			url: "<?php echo base_url(); ?>sms/sendsms",
+			data: sendSMSform.serialize(),
+			success: function( response ) {
+				console.log( response );
+			}
+		} );
 	}
 	
 </script>

@@ -108,7 +108,7 @@ class Sms extends CI_Controller {
 			//create confirmation code
 			$characters = 'abcdefghkmnpqrstuvwxyz23456789';
 			$confirmcode = '';
-			 for ($i = 0; $i < 7; $i++) {
+			 for ($i = 0; $i < 4; $i++) {
 			      $confirmcode.= $characters[rand(0, strlen($characters) - 1)];
 			 }
 		
@@ -121,6 +121,7 @@ class Sms extends CI_Controller {
 		   );
 		
 			//get sender id 
+			$this->db->insert('sms_sender', $data);
 			$senderid = $this->db->insert_id();
 			
 			//store recipients
@@ -135,6 +136,11 @@ class Sms extends CI_Controller {
 			}
 
 			//redirect user to home with success/fail message
+			$confirmationMsg = 'GTV#'.$senderid.'#Thank you for choosing peace. Your confirmation code is '.$confirmcode. '. Please enter it on http://bit.ly/gtvke';
+			
+//			$mercyResponse = file_get_contents('http://url.org/yyc/sms?MESSAGE='.urlencode($confirmationMsg));
+			echo 1;
+			
 		}
 }
 
