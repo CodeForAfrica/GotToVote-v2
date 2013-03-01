@@ -1,16 +1,27 @@
 /*
- * Voter Registration Centres Stylesheet
+ * GotToVote Stylesheet
  * -------------------------------------
  * 
  * This is a stylesheet to overide bootstrap elements and introduce new styling elements.
  *
- * Organization: Code 4 Kenya
- * URI: http://code4kenya.org
+ * Organization: Open Institute
+ * URI: http://openinstitute.com
  *
  * Author: David Lemayian
  * URI: http://davidlemayian.com
  *
  */
+ 
+/* .home-logos{
+ 	text-align: center;
+ }*/
+ 	.home-logos img{
+ 		margin: 5px;
+ 		opacity: 0.8;
+ 	}
+ 		.home-logos img:hover{
+ 			opacity: 1.0;
+ 		}
 
 .masthead ul{
 	margin-top: 20px;

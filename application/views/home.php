@@ -6,6 +6,13 @@
 				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
 				<p class="lead">Fill the form here and share the peace message via SMS for FREE!</p>
 				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+				<br /> <br /> <br />
+				<div class="home-logos">
+					<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
+					<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
+					<br />
+					<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
+				</div>
 			</div>
 			
 			<div style="text-align: center; padding-top: 30px;" class="span7">
@@ -32,18 +39,18 @@
 											<div class="row">
 												<div class="span4">
 													<p><b>Your Details:</b></p>
-													<input class="span4" type="text" name="" placeholder="Name" required><br />
-													<input class="span4" type="email" name="email" placeholder="Email" required><br />
+													<input class="span4" type="text" id="senderName" placeholder="Name" required onkeyup="editMsgRT();"><br />
+													<input class="span4" type="email" id="senderEmail" placeholder="Email" required><br />
 													<div>
 														<div class="input-prepend" style="float: right;">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" required>
+															<input class="span2" id="prependedInput" type="text" name="senderMob" placeholder="722722722" required onkeyup="editMsgRT();">
 														</div>
 													</div>
 													<div class="clearfix"></div>
 													<span class="help-block" style="text-align: right;">*All fields are required.</span>
 													<p><b>Peace Message:</b></p>
-													<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name] [0722722722]"></textarea>
+													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name] [0722722722]"></textarea>
 												</div>
 												<div class="span3">
 													<div style="text-align: right;">
@@ -438,11 +445,22 @@
 	});
 </script>
 
+<!-- SMS scripts -->
 <script type="text/javascript">
 	$('#smsCarousel').carousel({
 	  interval: false
 	})
 </script>
+<script type="text/javascript">
+	
+	function editMsgRT() {
+		$('[name="msgTextArea"]').next().text($('[name="senderName"]').next().text);
+	}
+	function checkRequired() {
+		
+	}
+</script>
+<script src="<? echo base_url(); ?>assets/js/sms.js" type="text/javascript"></script>
 
 <!-- Scroll -->
 <script type="text/javascript">
