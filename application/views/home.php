@@ -1,20 +1,15 @@
 <div style="border-bottom: 1px solid #e5e5e5; padding: 30px 0 20px; background-color: #fafafa; margin-bottom: 60px;">
 	<div class="container">
 		<div class="row">
-			<div class="span4">
-				<h1><i class="icon-group"></i></h1>
+			<div class="span5">
 				<br />
-				<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
-				<p class="lead">Select a county from the map and see the candidates from Governor, Senator and Women Representative.</p>
-				<p class="lead"></p>
-				
+				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
+				<p class="lead">Fill the form here and share the peace message via SMS for FREE!</p>
 				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
 			</div>
 			
-			<div style="text-align: center;" class="span8">
-				<h1>Share Peace Message via SMS!</h1>
-				<p class="lead">Fill the form below and share the peace message via SMS for FREE!</p>
-					
+			<div style="text-align: center; padding-top: 30px;" class="span7">
+				
 				<div>
 					<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;">
 						<button type="button" class="btn active" onclick="javascript:$('#smsCarousel').carousel(0);">
@@ -30,14 +25,14 @@
 					<div class="carousel-inner">
 						<div class="active item">
 							<div class="row">
-								<div class="span8">
+								<div class="span7">
 									<form>
 										<fieldset>
 											<legend>SMS Details</legend>
 											<div class="row">
 												<div class="span4">
 													<p><b>Your Details:</b></p>
-													<input class="span4" type="text" placeholder="Name" required><br />
+													<input class="span4" type="text" name="" placeholder="Name" required><br />
 													<input class="span4" type="email" name="email" placeholder="Email" required><br />
 													<div>
 														<div class="input-prepend" style="float: right;">
@@ -50,8 +45,8 @@
 													<p><b>Peace Message:</b></p>
 													<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name] [0722722722]"></textarea>
 												</div>
-												<div class="span4">
-													<div style="padding-right: 30px; text-align: right;">
+												<div class="span3">
+													<div style="text-align: right;">
 														<p><b>RECIPIENTS</b></p>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
