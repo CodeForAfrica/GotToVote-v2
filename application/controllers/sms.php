@@ -106,7 +106,7 @@ class Sms extends CI_Controller {
 			$recipients = $this->input->post('recipient');
 			
 			//create confirmation code
-			$characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+			$characters = 'abcdefghkmnpqrstuvwxyz23456789';
 			$confirmcode = '';
 			 for ($i = 0; $i < 7; $i++) {
 			      $confirmcode.= $characters[rand(0, strlen($characters) - 1)];
