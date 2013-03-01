@@ -46,7 +46,7 @@
 											<div class="clearfix"></div>
 											<span class="help-block" style="text-align: right;">*All fields are required.</span>
 											<p><b>Peace Message:</b></p>
-											<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenyan General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name]"></textarea>
+											<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name] [0722722722]"></textarea>
 										</div>
 										<div class="span4">
 											<div style="padding-right: 30px; text-align: right;">
