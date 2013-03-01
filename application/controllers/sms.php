@@ -99,6 +99,37 @@ class Sms extends CI_Controller {
 	
 			$this->load->view('aspirants', $data);
 		}
+		public function sendsms(){
+			$name = mysql_real_escape_string($this->input->post('name'));
+			$email = $this->input->post('email');
+			$sendernumber = $this->input->post('sendernumber');
+			$recipients = $this->input->post('recipient');
+			
+			$confirmcode = '1';
+			//store sender
+			$data = array(
+		   'Sender_No' => $sendernumber ,
+		   'Name' => $name ,
+		   'Email' => $email,
+		   'Confirm_Code' => $confirmcode
+		   );
+		
+			//get sender id 
+			$senderid = $this->db->insert_id();
+			
+			//store recipients
+			foreach($recipients as $recipient){
+				if($recipient!=''){
+				$data = array(
+				'Sender_Id' => $senderid,
+				'Mob_No' => $recipient
+				);
+				$this->db->insert('sms_recipient', $data);
+				}
+			}
+
+			//redirect user to home with success/fail message
+		}
 }
 
 /* End of file welcome.php */
