@@ -105,7 +105,13 @@ class Sms extends CI_Controller {
 			$sendernumber = $this->input->post('sendernumber');
 			$recipients = $this->input->post('recipient');
 			
-			$confirmcode = '1';
+			//create confirmation code
+			$characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+			$confirmcode = '';
+			 for ($i = 0; $i < 7; $i++) {
+			      $confirmcode.= $characters[rand(0, strlen($characters) - 1)];
+			 }
+		
 			//store sender
 			$data = array(
 		   'Sender_No' => $sendernumber ,
