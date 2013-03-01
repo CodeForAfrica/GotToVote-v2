@@ -1,6 +1,99 @@
+<div class="row">
+	<div class="span4">
+		<h1><i class="icon-group"></i></h1>
+		<br />
+		<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
+		<p class="lead">Select a county from the map and see the candidates from Governor, Senator and Women Representative.</p>
+		<p class="lead"></p>
+		
+		<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+	</div>
+	
+	<div style="text-align: center;" class="span8">
+		<h1>Share Peace Message via SMS!</h1>
+		<p class="lead">Fill the form below and share the peace message via SMS for FREE!</p>
+			
+		<div>
+			<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;">
+				<button type="button" class="btn active" onclick="javascript:$('#smsCarousel').carousel(0);">
+					<i class="icon-list-alt"></i> <b>SMS Details</b></button>
+				<button type="button" class="btn" onclick="javascript:$('#smsCarousel').carousel(1);">
+					<i class="icon-unlock"></i> <b>Confirmation Code</b></button>
+			</div>
+		</div>
+		
+		<div id="smsCarousel" class="carousel slide" style="text-align: left; margin-top: 10px;">
+			
+			<!-- Carousel items -->
+			<div class="carousel-inner">
+				<div class="active item">
+					<div class="row">
+						<div class="span8">
+							<form>
+								<fieldset>
+									<legend>SMS Details</legend>
+									<div class="row">
+										<div class="span4">
+											<p><b>Your Details:</b></p>
+											<input class="span4" type="text" placeholder="Name" required><br />
+											<input class="span4" type="email" placeholder="Email" required><br />
+											<div>
+												<div class="input-prepend" style="float: right;">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" required>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+											<span class="help-block" style="text-align: right;">*All fields are required.</span>
+											<p><b>Peace Message:</b></p>
+											<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenyan General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name]"></textarea>
+										</div>
+										<div class="span4">
+											<div style="padding-right: 30px; text-align: right;">
+												<p><b>RECIPIENTS</b></p>
+												<div class="input-prepend">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+												</div>
+												<div class="input-prepend">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+												</div>
+												<div class="input-prepend">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+												</div>
+												<div class="input-prepend">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+												</div>
+												<div class="input-prepend">
+												  	<span class="add-on">+254</span>
+													<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+												</div>
+												<div class="clearfix"></div>
+												<br />
+												<a href="#" class="btn btn-large btn-info"><i class="icon-envelope-alt"></i> Send SMS</a>
+											</div>
+										</div>
+									</div>
+							  	</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<h3>Confirmation Code</h3>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<hr style="margin: 50px 0;"/>
+
 <div class="jumbotron" id="jumbotron">
-	<h1>Kenya Decides!</h1>
-	<p class="lead">The Kenya General Elections are on March 4th 2013.</p>
 	
 	<div class="clock">
 		<!-- Days -->
@@ -51,96 +144,7 @@
 		<!-- /Seconds -->
 	</div>
 	<div class="clearfix"></div>
-	<p class="lead"></p>
 	
-	<a class="btn btn-large btn-info" href="#" id="smslink" onclick="$('#sms').scrollTop();"><i class="icon-envelope icon-white"></i> Share Peace Message <small>via SMS!</small></a>
-	<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
-	
-</div>
-
-<a name="sms" id="sms"></a>
-
-<hr style="margin: 50px 0;"/>
-
-<div style="text-align: center;">
-	<h1>Share Peace Message via SMS!</h1>
-	<p class="lead">Fill the form below and share the peace message via SMS for FREE!</p>
-		
-	<div>
-		<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;">
-			<button type="button" class="btn active" onclick="javascript:$('#smsCarousel').carousel(0);">
-				<i class="icon-list-alt"></i> <b>SMS Details</b></button>
-			<button type="button" class="btn" onclick="javascript:$('#smsCarousel').carousel(1);">
-				<i class="icon-unlock"></i> <b>Confirmation Code</b></button>
-		</div>
-	</div>
-	
-	<div id="smsCarousel" class="carousel slide" style="text-align: left; margin-top: 10px;">
-		
-		<!-- Carousel items -->
-		<div class="carousel-inner">
-			<div class="active item">
-				<div class="row">
-					<div class="span8 offset2">
-						<form>
-							<fieldset>
-								<legend>SMS Details</legend>
-								<div class="row">
-									<div class="span4">
-										<p><b>Your Details:</b></p>
-										<input class="span4" type="text" placeholder="Name" required><br />
-										<input class="span4" type="email" placeholder="Email" required><br />
-										<div>
-											<div class="input-prepend" style="float: right;">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" required>
-											</div>
-										</div>
-										<div class="clearfix"></div>
-										<span class="help-block" style="text-align: right;">*All fields are required.</span>
-										<p><b>Peace Message:</b></p>
-										<textarea rows="4" class="span4" id="disabledInput" disabled placeholder="I choose peace this coming Kenyan General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name]"></textarea>
-									</div>
-									<div class="span4">
-										<div style="padding-right: 30px; text-align: right;">
-											<p><b>RECIPIENTS</b></p>
-											<div class="input-prepend">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
-											</div>
-											<div class="input-prepend">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
-											</div>
-											<div class="input-prepend">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
-											</div>
-											<div class="input-prepend">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
-											</div>
-											<div class="input-prepend">
-											  	<span class="add-on">+254</span>
-												<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
-											</div>
-											<div class="clearfix"></div>
-											<br />
-											<a href="#" class="btn btn-large btn-info"><i class="icon-envelope-alt"></i> Send SMS</a>
-										</div>
-									</div>
-								</div>
-						  	</fieldset>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<h3>Confirmation Code</h3>
-			</div>
-		</div>
-		
-	</div>
 </div>
 
 <a name="find" id="find"></a>
