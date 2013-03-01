@@ -102,7 +102,7 @@
 														</div>
 														<div class="clearfix"></div>
 														<br />
-														<a href="#" class="btn btn-large btn-info"><i class="icon-envelope-alt"></i> Send SMS</a>
+														<a href="javascript:sendSMS();" class="btn btn-large btn-info"><i class="icon-envelope-alt"></i> Send SMS</a>
 													</div>
 												</div>
 											</div>
@@ -156,12 +156,18 @@
 				
 				function checkRequired() {
 					if ($('#senderName').val()==''||$('#senderEmail').val()==''||$('#senderMob input').val()==''){
-						
+						alert('Please enter all your details.');
+						return false;
 					}
+					return true;
 				}
 				
 				function sendSMS() {
-					checkRequired();
+					if (!checkRequired()){
+						return;
+					}
+					
+					alert('Success');
 				}
 				
 			</script>
