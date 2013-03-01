@@ -26,18 +26,18 @@
 						<div class="active item">
 							<div class="row">
 								<div class="span7">
-									<form>
+									<form action="<?php echo base_url(); ?>sms/sendsms" method="POST" id="sendsms">
 										<fieldset>
 											<legend>SMS Details</legend>
 											<div class="row">
 												<div class="span4" id="senderDetails">
 													<p><b>Your Details:</b></p>
-													<input class="span4" type="text" id="senderName" placeholder="Name" required onkeyup="editMsgRT();"><br />
-													<input class="span4" type="email" id="senderEmail" placeholder="Email" required><br />
+													<input class="span4" type="text" name="name" id="senderName" placeholder="Name" required onkeyup="editMsgRT();"><br />
+													<input class="span4" type="email" name="email" id="senderEmail" placeholder="Email" required><br />
 													<div>
 														<div class="input-prepend" style="float: right;" id="senderMob">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
+															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
 														</div>
 													</div>
 													<div class="clearfix"></div>
@@ -50,27 +50,27 @@
 														<p><b>RECIPIENTS</b></p>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+															<input class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722722" >
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+															<input class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722722" >
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+															<input class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722722" >
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+															<input class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722722" >
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" placeholder="722722722" >
+															<input class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722722" >
 														</div>
 														<div class="clearfix"></div>
 														<br />
-														<a href="#" class="btn btn-large btn-info"><i class="icon-envelope-alt"></i> Send SMS</a>
+														<a href="#" class="btn btn-large btn-info" onclick="sendsms.submit();><i class="icon-envelope-alt"></i> Send SMS</a>
 													</div>
 												</div>
 											</div>
