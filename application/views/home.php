@@ -6,13 +6,6 @@
 				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
 				<p class="lead">Fill the form here and share the peace message via SMS for FREE!</p>
 				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
-				<br /> <br /> <br />
-				<div class="home-logos">
-					<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
-					<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
-					<br />
-					<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
-				</div>
 			</div>
 			
 			<div style="text-align: center; padding-top: 30px;" class="span7">
@@ -37,14 +30,14 @@
 										<fieldset>
 											<legend>SMS Details</legend>
 											<div class="row">
-												<div class="span4">
+												<div class="span4" id="senderDetails">
 													<p><b>Your Details:</b></p>
 													<input class="span4" type="text" id="senderName" placeholder="Name" required onkeyup="editMsgRT();"><br />
 													<input class="span4" type="email" id="senderEmail" placeholder="Email" required><br />
 													<div>
-														<div class="input-prepend" style="float: right;">
+														<div class="input-prepend" style="float: right;" id="senderMob">
 														  	<span class="add-on">+254</span>
-															<input class="span2" id="prependedInput" type="text" name="senderMob" placeholder="722722722" required onkeyup="editMsgRT();">
+															<input class="span2" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
 														</div>
 													</div>
 													<div class="clearfix"></div>
@@ -411,6 +404,13 @@
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </td></tr></table>
 
+<div class="home-logos">
+	<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
+	<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
+	<br />
+	<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
+</div>
+
 
 <!-- Scripts -->
 
@@ -454,11 +454,29 @@
 <script type="text/javascript">
 	
 	function editMsgRT() {
-		$('[name="msgTextArea"]').next().text($('[name="senderName"]').next().text);
+		var theMsg = "I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - ";
+		var senderName = $('#senderName').val().split(" ");
+		var senderMob = $('#senderMob input').val();
+		if ($('#senderName').val()=='') {
+			senderName = '[Name]';
+		}
+		if ($('#senderMob input').val()=='') {
+			senderMob = '[722722722]';
+		}
+		var fullMsg = theMsg + senderName[0] + ' ' + senderMob;
+		$('#senderDetails textarea').attr('placeholder', fullMsg);
 	}
+	
 	function checkRequired() {
-		
+		if ($('#senderName').val()==''||$('#senderEmail').val()==''||$('#senderMob input').val()==''){
+			
+		}
 	}
+	
+	function sendSMS() {
+		checkRequired();
+	}
+	
 </script>
 <script src="<? echo base_url(); ?>assets/js/sms.js" type="text/javascript"></script>
 
