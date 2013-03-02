@@ -12,13 +12,13 @@
  *
  */
  
-/* .home-logos{
- 	text-align: center;
- }*/
- 	.home-logos img{
+.home-logos{
+	
+}
+	.home-logos img{
  		margin: 5px;
- 		opacity: 0.8;
- 	}
+		opacity: 0.8;
+	}
  		.home-logos img:hover{
  			opacity: 1.0;
  		}
