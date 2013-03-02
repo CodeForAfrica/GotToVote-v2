@@ -228,9 +228,8 @@
 			<div class="span5">
 				<h1><i class="icon-group"></i> The Candidates</h1>
 				<br />
-				<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
 				<p class="lead">Select a county from the map and see the candidates from Governor, Senator and Women Representative.</p>
-				
+				<p style="text-indent: 50px; text-align: justify;">￼The Constitution empowers the people to exercise sovereign power directly through elections. Power is also exercised at both the central and county Governments on behalf of the people. For leaders to genuinely exercise power on behalf of the people, they must be elected democratically in free and fair elections. Elections enable the people the right to exercise freedom to make political choices.</p>
 			</div>
 			<div class="span7">
 				<div id="map"></div>
