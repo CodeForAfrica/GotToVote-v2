@@ -116,12 +116,24 @@ class Sms extends CI_Controller {
 				return; // End if Pending.
 			}
 			
+			
 			//create confirmation code
-			$characters = 'abcdefghkmnpqrstuvwxyz23456789';
 			$confirmcode = '';
-			for ($i = 0; $i < 4; $i++) {
-				$confirmcode.= $characters[rand(0, strlen($characters) - 1)];
+			$confirmcodeExist = 1;
+			while ($confirmcodeExist == 1) {
+				$characters = 'abcdefghkmnpqrstuvwxyz23456789';
+				$confirmcode = '';
+				for ($i = 0; $i < 4; $i++) {
+					$confirmcode.= $characters[rand(0, strlen($characters) - 1)];
+				}
+				
+				$query = $this->db->query('SELECT * FROM sms_sender WHERE Confirm_Code = "'.$confirmcode.'" AND Confirmed = 0');
+				
+				if ($query->num_rows() == 0 ) { // Confirmation Code doesn't exist.
+					$confirmcodeExist = 0;
+				}
 			}
+			
 			
 			//store sender
 			$data = array(
@@ -149,7 +161,7 @@ class Sms extends CI_Controller {
 			// SMS Send
 			$confirmationMsg = $sms_keyword.'#'.$senderid.'#Thank you for choosing peace. Your confirmation code is '.$confirmcode. '. Please enter it on http://bit.ly/gtvke';
 			
-			$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($confirmationMsg).'&SOURCEADDR='.$sms_keyword.'&DESTADDR=0'.$sendernumber.'&username='.$sms_username.'&password='.$sms_password);
+			$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($confirmationMsg).'&SOURCEADDR=254'.$sendernumber.'&DESTADDR='.$sms_keyword.'&username='.$sms_username.'&password='.$sms_password);
 			
 			// Mercy Corps response on success: "Successfully received SMS"
 			echo $mercyResponse;
@@ -185,9 +197,9 @@ class Sms extends CI_Controller {
 				foreach ($query->result_array() as $row) {
 					$recipientno = $row['Mob_No'];
 					
-					$peaceMsg = $sms_keyword.'#'.$senderid.'#I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - '.$sendername[0].' 0'.$senderno;
+					$peaceMsg = $sms_keyword.'#'.$senderid.'#Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: 0'.$senderno;
 					
-					$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($peaceMsg).'&SOURCEADDR='.$sms_keyword.'&DESTADDR=0'.$sendernumber.'&username='.$sms_username.'&password='.$sms_password);
+					$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($peaceMsg).'&SOURCEADDR=254'.$recipientno.'&DESTADDR='.$sms_keyword.'&username='.$sms_username.'&password='.$sms_password);
 					
 				}
 				

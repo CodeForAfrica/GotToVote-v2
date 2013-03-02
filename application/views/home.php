@@ -5,6 +5,7 @@
 				<br />
 				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
 				<p class="lead">Fill the form and share the peace message via SMS for FREE!</p>
+				<br />
 				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
 			</div>
 			
@@ -86,13 +87,27 @@
 									<table align="center" style="text-align: center; height: 292px;"><tr><td>
 										<div style="padding: 0 100px;">
 											<p class="lead" style="font-weight: 500; font-size: 40px;">Thank You</p>
-											<p class="lead" style="font-size: 17px; line-height: 20px;">Enter the confirmation code sent to you by SMS and your peace message will be on its merry way.</p>
-											<input type="text" name="confirmCode" id="confirmCode" style="text-align: center;"/><br />
-											<a href="javascript:confirmCode();" class="btn btn-large btn-info" id="btnConfirm"><i class="icon-spinner icon-spin" style="display: none;"></i> Confirm</a>
+											<div id="divConfirmCode">
+												<p class="lead" style="font-size: 17px; line-height: 20px;">Enter the confirmation code sent to you by SMS and your peace message will be on its merry way.</p>
+												<input type="text" name="confirmCode" id="confirmCode" style="text-align: center;"/><br />
+												<a href="javascript:confirmCode();" class="btn btn-large btn-info" id="btnConfirm"><i class="icon-spinner icon-spin" style="display: none;"></i> Confirm</a>
+											</div>
+											<div id="divShareSocial" style="display: none;">
+												<p class="lead" style="font-size: 17px; line-height: 20px;">Success! You are amazing! You can now share the peace message on Facebook &amp; Twitter.</p>
+												<p class="lead">
+													<a href="javascript:void(0);" name="Share_FB" title="Share on FB | GotToVote! Ke"
+													onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgottovote.co.ke%2F&t=Hi.+Join+me+in+voting+peacefully+in+this+historic+elections.+Send+the+SMS+free+to+your+friends+on+http://bit.ly/gtvke","GotToVote","width=550,height=270");'><i class="icon-facebook icon-2x icon-border"></i></a>
+													
+													<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
+													onClick='window.open("http://twitter.com/intent/tweet?text=Hi.+Join+me+in+voting+peacefully+in+this+historic+elections.+Send+the+SMS+free+to+your+friends+on+http://bit.ly/gtvke+%23GotToVote", "GotToVote", "width=550,height=270");'><i class="icon-twitter icon-2x icon-border"></i></a>
+													
+												</p>
+											</div>
 										</div>
 									</td></tr></table>
 							  	</fieldset>
 							</form>
+							
 							
 						</div>
 					</div>

@@ -23,6 +23,21 @@
  			opacity: 1.0;
  		}
 
+#divShareSocial a {
+	text-decoration: none;
+	padding: 10px;
+	margin: 0 10px;
+}
+	#divShareSocial a:first-child{
+		color: #3b5998;
+	}
+	#divShareSocial a:second-child{
+		color: #00aced;
+	}
+	#divShareSocial a:hover {
+		color: #9a9a9a;
+	}
+
 .masthead ul{
 	margin-top: 20px;
 }

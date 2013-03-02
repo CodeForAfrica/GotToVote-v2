@@ -3,16 +3,13 @@ $('#smsCarousel').carousel({
 })
 
 function editMsgRT() {
-	var theMsg = "I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - ";
-	var senderName = $('#senderName').val().split(" ");
+	var theMsg = "Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: ";
 	var senderMob = '0'+$('#senderMob input').val();
-	if ($('#senderName').val()=='') {
-		senderName = '[Name]';
-	}
+	
 	if ($('#senderMob input').val()=='') {
-		senderMob = '[722722722]';
+		senderMob = '[0722722722]';
 	}
-	var fullMsg = theMsg + senderName[0] + ' ' + senderMob;
+	var fullMsg = theMsg + senderMob;
 	$('#senderDetails textarea').attr('placeholder', fullMsg);
 }
 
@@ -53,6 +50,7 @@ function sendSMS() {
 			$('#btnSendSMS .icon-spinner').hide();
 			$('#smsCarousel').carousel(1);
 			$('#btnItemSmsConfirm').button('toggle');
+			$('#smsDetailsForm').find('input:text, input:password, input:file, select, textarea').val('');
 		}
 	} );
 	
@@ -76,9 +74,10 @@ function confirmCode() {
 		
 			console.log( response );
 			if (response == "No confirm") {
-				alert('We are unable to confirm with that code. Please check to make sure it is correct.')
+				alert('We are unable to confirm with that code. Please check to make sure it is correct.');
 			} else {
-				
+				$('#divConfirmCode').hide('slow');
+				$('#divShareSocial').show('slow');
 			}
 			
 			$('#btnConfirm .icon-spinner').hide();
