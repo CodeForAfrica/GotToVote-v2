@@ -2,6 +2,7 @@
 
 # Security Purposes
 */config/database.php
+*/controllers/sms-auth.php
 
 # Code Igniter Ignore
 */config/development
@@ -10,4 +11,5 @@
 */cache/*
 */cache/!index.html
 */application/config/database.php
+
 *.project

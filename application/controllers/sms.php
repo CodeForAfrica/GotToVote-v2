@@ -99,48 +99,104 @@ class Sms extends CI_Controller {
 	
 			$this->load->view('aspirants', $data);
 		}
-		public function sendsms(){
+		
+		public function senderActivate() {
+			
+			include 'sms-auth.php';
+			
 			$name = mysql_real_escape_string($this->input->post('name'));
 			$email = $this->input->post('email');
 			$sendernumber = $this->input->post('sendernumber');
 			$recipients = $this->input->post('recipient');
 			
+			$query = $this->db->query('SELECT * FROM sms_sender WHERE Sender_No = "'.$sendernumber.'" AND Confirmed = 0');
+			
+			if ($query->num_rows() > 0 ) { // Has pending activation.
+				echo 'Pending confirmation';
+				return; // End if Pending.
+			}
+			
 			//create confirmation code
 			$characters = 'abcdefghkmnpqrstuvwxyz23456789';
 			$confirmcode = '';
-			 for ($i = 0; $i < 4; $i++) {
-			      $confirmcode.= $characters[rand(0, strlen($characters) - 1)];
-			 }
-		
+			for ($i = 0; $i < 4; $i++) {
+				$confirmcode.= $characters[rand(0, strlen($characters) - 1)];
+			}
+			
 			//store sender
 			$data = array(
-		   'Sender_No' => $sendernumber ,
-		   'Name' => $name ,
-		   'Email' => $email,
-		   'Confirm_Code' => $confirmcode
-		   );
-		
-			//get sender id 
+			   'Sender_No' => $sendernumber ,
+			   'Name' => $name ,
+			   'Email' => $email,
+			   'Confirm_Code' => $confirmcode
+			);
 			$this->db->insert('sms_sender', $data);
+			
+			//get sender id 
 			$senderid = $this->db->insert_id();
 			
 			//store recipients
 			foreach($recipients as $recipient){
 				if($recipient!=''){
-				$data = array(
-				'Sender_Id' => $senderid,
-				'Mob_No' => $recipient
-				);
-				$this->db->insert('sms_recipient', $data);
+					$data = array(
+						'Sender_Id' => $senderid,
+						'Mob_No' => $recipient
+					);
+					$this->db->insert('sms_recipient', $data);
 				}
 			}
-
-			//redirect user to home with success/fail message
-			$confirmationMsg = 'GTV#'.$senderid.'#Thank you for choosing peace. Your confirmation code is '.$confirmcode. '. Please enter it on http://bit.ly/gtvke';
 			
-//			$mercyResponse = file_get_contents('http://url.org/yyc/sms?MESSAGE='.urlencode($confirmationMsg));
-			echo 1;
+			// SMS Send
+			$confirmationMsg = $sms_keyword.'#'.$senderid.'#Thank you for choosing peace. Your confirmation code is '.$confirmcode. '. Please enter it on http://bit.ly/gtvke';
 			
+			$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($confirmationMsg).'&SOURCEADDR='.$sms_keyword.'&DESTADDR=0'.$sendernumber.'&username='.$sms_username.'&password='.$sms_password);
+			
+			// Mercy Corps response on success: "Successfully received SMS"
+			echo $mercyResponse;
+			return;
+			
+		}
+		
+		public function confirmCode(){
+			
+			include 'sms-auth.php';
+			
+			$senderid = '';
+			$confirmcode = mysql_real_escape_string($this->input->post('confirmcode'));
+			
+			$query = $this->db->query('SELECT * FROM sms_sender WHERE Confirm_Code = "'.$confirmcode.'" AND Confirmed = 0');
+			
+			if ($query->num_rows() == 0 ) { // No confirm code
+				echo 'No confirm';
+				return; // End if none.
+			}
+						
+			foreach ($query->result_array() as $row) {
+				$senderid = $row['ID_No'];
+				$senderno = $row['Sender_No'];
+				$sendername = explode(" ", $row['Name']);
+			}
+			
+			$this->db->query('UPDATE sms_sender SET Confirmed = 1, Date_Confirm = NOW() WHERE ID_No = '.$senderid.' AND Confirmed = 0');
+			
+			$query = $this->db->query('SELECT * FROM sms_recipient WHERE Sender_ID = '.$senderid);
+			
+			if ($query->num_rows() > 0 ) { // No confirm code
+				foreach ($query->result_array() as $row) {
+					$recipientno = $row['Mob_No'];
+					
+					$peaceMsg = $sms_keyword.'#'.$senderid.'#I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - '.$sendername[0].' 0'.$senderno;
+					
+					$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($peaceMsg).'&SOURCEADDR='.$sms_keyword.'&DESTADDR=0'.$sendernumber.'&username='.$sms_username.'&password='.$sms_password);
+					
+				}
+				
+				$this->db->query('UPDATE sms_recipient SET Sent = 1, Date_Sent = NOW() WHERE Sender_Id = '.$senderid.' AND Sent = 0');
+				
+			}
+			
+			echo 'Success';
+			return;
 		}
 }
 

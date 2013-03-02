@@ -132,45 +132,7 @@
 				</div>
 			</div>
 			
-			<!-- SMS scripts -->
-			<script type="text/javascript">
-				$('#smsCarousel').carousel({
-				  interval: false
-				})
-			</script>
-			<script type="text/javascript">
-				
-				function editMsgRT() {
-					var theMsg = "I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - ";
-					var senderName = $('#senderName').val().split(" ");
-					var senderMob = $('#senderMob input').val();
-					if ($('#senderName').val()=='') {
-						senderName = '[Name]';
-					}
-					if ($('#senderMob input').val()=='') {
-						senderMob = '[722722722]';
-					}
-					var fullMsg = theMsg + senderName[0] + ' ' + senderMob;
-					$('#senderDetails textarea').attr('placeholder', fullMsg);
-				}
-				
-				function checkRequired() {
-					if ($('#senderName').val()==''||$('#senderEmail').val()==''||$('#senderMob input').val()==''){
-						alert('Please enter all your details.');
-						return false;
-					}
-					return true;
-				}
-				
-				function sendSMS() {
-					if (!checkRequired()){
-						return;
-					}
-					
-					alert('Success');
-				}
-				
-			</script>
+			<!-- SMS script -->
 			<script src="<? echo base_url(); ?>assets/js/sms.js" type="text/javascript"></script>
     	
     </body>
