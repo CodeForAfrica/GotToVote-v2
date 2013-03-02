@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="span5">
 				<br />
-				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
-				<p class="lead">Fill the form and share the peace message via SMS for FREE!</p>
+				<h1 style="font-weight: 500;">Share the Message!</h1>
+				<p class="lead">Fill the form and share this peace message with your friends free!</p>
 				<br />
 				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
 			</div>
