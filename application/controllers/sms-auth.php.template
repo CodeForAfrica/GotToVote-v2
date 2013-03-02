@@ -1,0 +1,6 @@
+<?php
+	$sms_url = '';
+	$sms_username = '';
+	$sms_password = '';
+	$sms_keyword = '';
+?>

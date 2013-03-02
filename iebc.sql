@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.3
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 26, 2013 at 05:09 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Host: localhost
+-- Generation Time: Mar 01, 2013 at 09:31 AM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -3362,6 +3362,40 @@ INSERT INTO `senatorial_candidates` (`id`, `countyid`, `surname`, `other_name`, 
 (242, 47, 'KIKAYA', 'DAVID D.K ADAKA', '59C3426B-4E69-E211-BA98-005056870012', 37, ' ', 'http://api.iebc.or.ke/images/candidate/59C3426B-4E', '551BC5C4-0343-E211-884B-70F3955EC982', '42'),
 (243, 47, 'ODEO', 'ANDREW IMO', '1069F915-D866-E211-A3B9-00505687000D', 39, ' ', 'http://api.iebc.or.ke/images/candidate/1069F915-D8', '551BC5C4-0343-E211-884B-70F3955EC982', '42'),
 (244, 47, 'ROTICH', 'JACOB KIPKEMBOI', '54E8396D-186D-E211-A5C8-005056870012', 41, ' ', 'http://api.iebc.or.ke/images/candidate/54E8396D-18', '551BC5C4-0343-E211-884B-70F3955EC982', '42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_recipient`
+--
+
+CREATE TABLE IF NOT EXISTS `sms_recipient` (
+  `ID_No` int(255) NOT NULL AUTO_INCREMENT,
+  `Mob_No` text,
+  `Sender_Id` int(255) DEFAULT NULL,
+  `Date_Added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date_Sent` timestamp NULL DEFAULT NULL,
+  `Sent` int(4) DEFAULT NULL,
+  PRIMARY KEY (`ID_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_sender`
+--
+
+CREATE TABLE IF NOT EXISTS `sms_sender` (
+  `ID_No` int(255) NOT NULL AUTO_INCREMENT,
+  `Sender_No` text,
+  `Name` text,
+  `Email` text,
+  `Confirm_Code` text,
+  `Confirmed` int(4) DEFAULT NULL,
+  `Date_Added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date_Confirm` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`ID_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
