@@ -12,6 +12,7 @@
         <meta name="keywords" content="Kenya, elections, 2013, candidates, president, Got To Vote, governor, county, senator, women representative, kenyan elections, SMS Peace" />
         <meta name="author" content="Open Institute" />
         <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="http://gottovote.co.ke/assets/img/logo_2.png" />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         
