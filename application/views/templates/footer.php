@@ -1,5 +1,5 @@
 <div class="container">
-	<hr style="margin-top: 90px;"/>
+	<hr style="margin: 50px 0;"/>
 
 	<div class="social-icons">
 		<h3>Share GotToVote.co.ke</h3>
