@@ -38,7 +38,7 @@
 													<div>
 														<div class="input-prepend" style="float: right;" id="senderMob">
 														  	<span class="add-on">+254</span>
-															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
+															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();" maxlength="9">
 														</div>
 													</div>
 													<div class="clearfix"></div>
@@ -51,23 +51,23 @@
 														<p><b>RECIPIENTS</b></p>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" >
+															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" >
+															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" >
+															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" >
+															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" >
+															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" maxlength="9">
 														</div>
 														<div class="clearfix"></div>
 														<br />
@@ -426,6 +426,7 @@
 		<p style="vertical-align: middle; float: left; margin-top: 10px;">
 			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
 			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="Mercy Corps" />
 			<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
 		</p>
 		<div style="float: right; text-align: center;">
