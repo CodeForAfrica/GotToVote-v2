@@ -424,13 +424,13 @@
 	
 	<div class="home-logos">
 		<p style="vertical-align: middle; float: left; margin-top: 10px;">
-			<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="AMI" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />			
+			<a href="http://code4kenya.org"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" /></a>
+			<a href="http://www.africanmediainitiative.org/"><img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" /></a>
+			<a href="http://www.mercycorps.org/"><img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="MercyCorp" /></a>
+			<a href="http://www.hivos.org/"><img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" /><a>			
 		</p>
 		<div style="float: right; text-align: center;">
-			<img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" />
+			<a href="http://openinstitute.com"><img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" /></a>
 			<p style="margin: 0; color: #777;">Implementing Partner</p>
 		</div>
 	</div>
