@@ -424,9 +424,10 @@
 	
 	<div class="home-logos">
 		<p style="vertical-align: middle; float: left; margin-top: 10px;">
-			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
 			<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="AMI" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />			
 		</p>
 		<div style="float: right; text-align: center;">
 			<img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" />
