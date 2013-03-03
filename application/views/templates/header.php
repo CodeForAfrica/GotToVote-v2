@@ -39,7 +39,7 @@
         <div style="padding: 10px 0 5px; border-bottom: 1px solid #e5e5e5;">
         	<div class="container">
         		<div class="masthead">
-        			<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
+        			<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /><span style="position:relative;left:-200px;top:35px">A Code4Kenya Project</span></a>
         			<ul class="nav nav-pills pull-right">
         				<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
         				<li><a href="<?php echo base_url(); ?>about"  style="line-height: 20px;">About</a></li>
