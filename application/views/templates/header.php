@@ -42,7 +42,7 @@
         			<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" /></a>
         			<ul class="nav nav-pills pull-right">
         				<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
-        				<!--<li><a href="<?php echo base_url(); ?>about">About</a></li>-->
+        				<li><a href="<?php echo base_url(); ?>about"  style="line-height: 20px;">About</a></li>
         				<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank" style="line-height: 20px;">Downloads</a></li>
         				<li><a href="http://nimeregister.com" target="_blank">
         					<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px;" /> Nimeregister</a></li>

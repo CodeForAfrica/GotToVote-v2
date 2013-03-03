@@ -6,8 +6,8 @@
         				<h2>About </h2>
         			</div>
         			
-        			<p class="lead"><b>GotToVote!</b> is designed to help Kenyans find their nearest voter registration centre, so that they can enroll themselves as registered voters and be eligible to vote in the 2013 general election.</p>
-        			
+        			<!--<p class="lead"><b>GotToVote!</b> is designed to help Kenyans find their nearest voter registration centre, so that they can enroll themselves as registered voters and be eligible to vote in the 2013 general election.</p>
+        			-->
         			<p><b>GotToVote!</b> is an example of how open data can be useful to ordinary citizens.</p>
         			
         			<p><b>GotToVote!</b> was built at virtually zero cost as a <a href="http://code4kenya.org">Code4Kenya</a> data journalism project. It demonstrates how data-driven tools can help media audiences act on the news they read / watch, by finding out how a national event such as the elections affects their personal lives or local communities.</p>
