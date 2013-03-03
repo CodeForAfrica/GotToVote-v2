@@ -1,4 +1,3 @@
-<div style="text-align: justify;border-bottom: 1px solid #e5e5e5; padding: 30px 0 20px; background-color: #fafafa; margin-bottom: 60px;">
 	<div class="container">
 		<div class="row">
 			<div class="span12">
@@ -31,4 +30,3 @@
         		</div>
         	</div>
 	</div>
-</div>
