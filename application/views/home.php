@@ -404,8 +404,6 @@
 	
 
 	</div>
-<<<<<<< HEAD
-=======
 	
 	<table align="center" style="text-align: center; width: 90%;"><tr><td>
 		<a class="twitter-timeline" href="https://twitter.com/search?q=%23GotToVote" data-widget-id="280061031194181635">Tweets about "#GotToVote"</a>
@@ -427,7 +425,7 @@
 		</div>
 	</div>
 </div>
->>>>>>> Added mercy corp logo.
+
 <!-- Scripts -->
 
 <!-- Countdown Timer -->
