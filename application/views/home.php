@@ -401,6 +401,8 @@
 	
 	</div>
 
+	
+
 	<hr style="margin-top: 90px;"/>
 
 	<div class="social-icons">
@@ -435,8 +437,6 @@
 		</div>
 	</div>
 </div>
-
-
 <!-- Scripts -->
 
 <!-- Countdown Timer -->
