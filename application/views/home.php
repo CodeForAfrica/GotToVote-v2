@@ -116,6 +116,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <div class="container">
@@ -275,7 +276,7 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
 	
 		<script type="text/javascript">
-	
+
 			var map = L.map('map').setView([-0.06592, 38.10059], 6);
 	
 			var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
