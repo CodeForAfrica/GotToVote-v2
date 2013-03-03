@@ -38,7 +38,7 @@
 													<div>
 														<div class="input-prepend" style="float: right;" id="senderMob">
 														  	<span class="add-on">+254</span>
-															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
+															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();" maxlength="9">
 														</div>
 													</div>
 													<div class="clearfix"></div>
@@ -51,23 +51,23 @@
 														<p><b>RECIPIENTS</b></p>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" >
+															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" >
+															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" >
+															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" >
+															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" >
+															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" maxlength="9">
 														</div>
 														<div class="clearfix"></div>
 														<br />
@@ -404,6 +404,37 @@
 	
 
 	</div>
+<<<<<<< HEAD
+=======
+	
+	<table align="center" style="text-align: center; width: 90%;"><tr><td>
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%23GotToVote" data-widget-id="280061031194181635">Tweets about "#GotToVote"</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</td></tr></table>
+	
+	<hr style="margin: 50px 0 30px;"/>
+	
+	<div class="home-logos">
+		<p style="vertical-align: middle; float: left; margin-top: 10px;">
+<<<<<<< HEAD
+			<a href="http://code4kenya.org"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" /></a>
+			<a href="http://www.africanmediainitiative.org/"><img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" /></a>
+			<a href="http://www.mercycorps.org/"><img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="MercyCorp" /></a>
+			<a href="http://www.hivos.org/"><img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" /><a>			
+=======
+			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/mercy.jpeg" style="width: 120px;" alt="Mercy Corps" />
+			<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
+>>>>>>> Added mercy corp logo.
+		</p>
+		<div style="float: right; text-align: center;">
+			<a href="http://openinstitute.com"><img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" /></a>
+			<p style="margin: 0; color: #777;">Implementing Partner</p>
+		</div>
+	</div>
+</div>
+>>>>>>> Added mercy corp logo.
 <!-- Scripts -->
 
 <!-- Countdown Timer -->
