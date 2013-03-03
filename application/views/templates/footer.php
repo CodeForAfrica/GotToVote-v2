@@ -22,7 +22,7 @@
 	
 	<div class="home-logos">
 		<p style="vertical-align: middle; float: left; margin-top: 10px;">
-			<a href="http://code4kenya.org" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya"/></a>
+			<a href="http://code4kenya.org" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;margin-right:50px;" alt="Code4Kenya"/></a>
 			<a href="http://www.africanmediainitiative.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" /></a>
 			<a href="http://www.nybakenya.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/nyba.png" style="width: 150px;" alt="NYBA" /></a>
 			<a href="http://www.hivos.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" /><a>			
