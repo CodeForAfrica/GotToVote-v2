@@ -1,4 +1,4 @@
-	<div class="container">
+	<div class="container" style="text-align: justify">
 		<div class="row">
 			<div class="span12">
         			<div class="page-header">
