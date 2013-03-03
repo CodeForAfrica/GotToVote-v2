@@ -43,9 +43,15 @@
         			<ul class="nav nav-pills pull-right">
         				<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>
         				<li><a href="<?php echo base_url(); ?>about"  style="line-height: 20px;">About</a></li>
+        				<li class="dropdown"><a style="line-height: 20px;" class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Media<b class="caret"></b></a>
+                <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo base_url(); ?>assets/Press_Release_Gottovote.pdf">Press Release</a></li>
+                </ul>
+              </li>
         				<li><a href="http://africaopendata.org/dataset?tags=GotToVote" target="_blank" style="line-height: 20px;">Downloads</a></li>
-        				<li><a href="http://nimeregister.com" target="_blank">
+        				<!--<li><a href="http://nimeregister.com" target="_blank">
         					<img src="<?php echo base_url(); ?>assets/img/logos/nimeregister.png" style="height: 20px;" /> Nimeregister</a></li>
+        				-->
         			</ul>
         		</div>
         	</div>

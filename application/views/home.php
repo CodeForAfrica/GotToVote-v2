@@ -6,7 +6,12 @@
 				<h1 style="font-weight: 500;">Share the Message!</h1>
 				<p class="lead">Fill the form and share this peace message with your friends free!</p>
 				<br />
-				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+				<a class="btn btn-large btn-success homebtn" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+				<br /><br />
+				<a class="btn btn-large btn-success homebtn" href="http://uchaguzi.co.ke" target='_blank'><i class="icon-bullhorn icon-white"></i> Make a Report</a>
+				<br /><br />
+				<a class="btn btn-large btn-success homebtn" href="http://gottovote.code4kenya.org/" target='_blank'><i class="icon-search icon-white"></i> Registration Centers</a>
+
 			</div>
 			
 			<div style="text-align: right; padding-top: 30px;" class="span7">
