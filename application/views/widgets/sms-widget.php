@@ -75,7 +75,7 @@
 													<div class="clearfix"></div>
 													<span class="help-block" style="text-align: right;">*All fields are required.</span>
 													<p><b>Peace Message:</b></p>
-													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: [0722722722]"></textarea>
+													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="Hi. Thank you for keeping the peace & making history along with thousands of Kenyans like you. Send this SMS free at http://bit.ly/gtvke From: [0722722722]"></textarea>
 												</div>
 												<div class="span3">
 													<div style="text-align: right;">

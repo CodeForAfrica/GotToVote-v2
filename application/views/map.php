@@ -38,17 +38,14 @@
 	<script src="<?php echo base_url(); ?>assets/js/ajax_request.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties.geojson"></script>
-	
+		    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    <script src="https://gist.github.com/raw/4504864/c9ef880071f959398b7cf0b687d4f37c352ea86d/leaflet-google.js"></script>
 	<script type="text/javascript">
 
 		var map = L.map('map').setView([-1.28, 36.82], 6);
-
-		var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
-			attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-			key: 'BC9A493B41014CAABB98F0471D759707',
-			styleId: 22677
-		}).addTo(map);
-
+		var googleLayer = new L.Google('HYBRID');
+		map.addLayer(googleLayer);
+		
 
 		// control that shows state info on hover
 		var info = L.control();

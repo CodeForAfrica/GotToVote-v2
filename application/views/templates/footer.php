@@ -21,15 +21,18 @@
 	<hr style="margin: 50px 0 30px;"/>
 	
 	<div class="home-logos">
-		<p style="vertical-align: middle; float: left; margin-top: 10px;">
+		<p style="vertical-align: middle;margin-top: 10px;text-align:center">
 			<a href="http://code4kenya.org" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;margin-right:50px;" alt="Code4Kenya"/></a>
+			<br /><br /><span style="margin: 0; color: #777;font-weight: bold">Partners</span><br />
+			<a href="http://www.hivos.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" /><a>	
 			<a href="http://www.africanmediainitiative.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" /></a>
 			<a href="http://www.nybakenya.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/nyba.png" style="width: 150px;" alt="NYBA" /></a>
-			<a href="http://www.hivos.org/" target="_blank"><img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" /><a>			
+			<br />	
 		</p>
-		<div style="float: right; text-align: center;">
+		<div style="text-align: center;">
+			<p style="margin: 0; color: #777;font-weight: bold">Implementing Partner</p>
 			<a href="http://openinstitute.com"><img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" /></a>
-			<p style="margin: 0; color: #777;">Implementing Partner</p>
+			
 		</div>
 	</div>
 

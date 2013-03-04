@@ -8,7 +8,7 @@
 				<br />
 				<a class="btn btn-large btn-success homebtn" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
 				<br /><br />
-				<a class="btn btn-large btn-success homebtn" href="http://uchaguzi.co.ke" target='_blank'><i class="icon-bullhorn icon-white"></i> Make a Report</a>
+				<a class="btn btn-large btn-success homebtn" href="https://uchaguzi.co.ke/reports/submit" target='_blank'><i class="icon-bullhorn icon-white"></i> Make a Report</a>
 				<br /><br />
 				<a class="btn btn-large btn-success homebtn" href="http://gottovote.code4kenya.org/" target='_blank'><i class="icon-search icon-white"></i> Registration Centers</a>
 
@@ -49,7 +49,7 @@
 													<div class="clearfix"></div>
 													<span class="help-block" style="text-align: right;">*All fields are required.</span>
 													<p><b>Peace Message:</b></p>
-													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: [0722722722]"></textarea>
+													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="Hi. Thank you for keeping the peace & making history along with thousands of Kenyans like you. Send this SMS free at http://bit.ly/gtvke From: [0722722722]"></textarea>
 												</div>
 												<div class="span3">
 													<div style="text-align: right;">
@@ -125,7 +125,7 @@
 
 <div class="container">
 
-	<div class="jumbotron" id="jumbotron">
+	<div class="jumbotron" id="jumbotron" style="display:none;">
 		
 		<div class="clock">
 			<!-- Days -->
