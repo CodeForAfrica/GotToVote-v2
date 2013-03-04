@@ -20,7 +20,7 @@ function ajaxrequest(php_file, tagID, loading, countyid, edType) {
   //document.getElementById("formstuff").style.display = 'none';
   // create pairs index=value with data that must be sent to server
   //var  the_data = 'bla='+document.getElementById('dtb').value+'&test='+document.getElementById('dta').value;
-	var the_data = 'countyid='+countyid+'&type='+edType;
+	var the_data = 'countyid='+countyid+'&edType='+edType;
   request.open("POST", php_file, true);			// set the request
 
   // adds  a header to tell the PHP script to recognize the data as is sent via POST

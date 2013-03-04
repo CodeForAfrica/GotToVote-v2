@@ -197,7 +197,7 @@ class Sms extends CI_Controller {
 				foreach ($query->result_array() as $row) {
 					$recipientno = $row['Mob_No'];
 					
-					$peaceMsg = $sms_keyword.'#'.$senderid.'#Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: 0'.$senderno;
+					$peaceMsg = $sms_keyword.'#'.$senderid.'#Hi. Thank you for keeping the peace & making history along with thousands of Kenyans like you. Send this SMS free at http://bit.ly/gtvke From: '.$senderno;
 					
 					$mercyResponse = file_get_contents($sms_url.'MESSAGE='.urlencode($peaceMsg).'&SOURCEADDR=254'.$recipientno.'&DESTADDR='.$sms_keyword.'&username='.$sms_username.'&password='.$sms_password);
 					
