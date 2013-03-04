@@ -41,6 +41,9 @@ class Home extends CI_Controller {
 		{
 			
 			$countyid = $_POST['countyid'];
+			$ed = $_POST['edType'];
+			//check electoral district
+			
 			//find county information
 			$this->db->where('countyid',$countyid);
 			$result = $this->db->get('county');

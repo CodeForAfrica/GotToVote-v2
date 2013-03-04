@@ -295,8 +295,8 @@
 			};
 	
 			info.update = function (props) {
-				this._div.innerHTML = '<h4>Voter Registration per County</h4>' +  (props ?
-					'<b>' + props.COUNTY_NAM + '</b>: ' + props.REG : 'Hover over a county');
+				this._div.innerHTML = '<h4>Voter Registration</h4>' +  (props ?
+					'<b>' + props.EDNAME + '</b>: ' + props.REG : 'Hover over a region');
 			};
 	
 			info.addTo(map);
@@ -328,11 +328,11 @@
 				return d > 1000000 ? '#000000' :
 					   d > 500000 ? '#800026' :
 				       d > 300000  ? '#BD0026' :
-				       d > 250000  ? '#E31A1C' :
-				       d > 200000  ? '#FC4E2A' :
-				       d > 150000   ? '#FD8D3C' :
-				       d > 120000   ? '#FEB24C' :
-				       d > 100000   ? '#FED976' :
+				       d > 100000  ? '#E31A1C' :
+				       d > 50000  ? '#FC4E2A' :
+				       d > 25000   ? '#FD8D3C' :
+				       d > 10000   ? '#FEB24C' :
+				       d > 0   ? '#FED976' :
 				                  '#FFEDA0';
 			}
 	
@@ -375,8 +375,16 @@
 			function zoomToFeature(e) {
 				map.fitBounds(e.target.getBounds());
 				var layer = e.target;
-				
-				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', layer.feature.properties.OBJECTID_1);
+				var ed_id;
+				var edType;
+				if((layer.feature.properties.OBJECTID_1)==null || (layer.feature.properties.OBJECTID_1)==false){
+					ed_id = layer.feature.properties.OBJECTID;
+					edType = 2;
+				}else{
+					ed_id = layer.feature.properties.OBJECTID_1;
+					edType = 1;
+				}
+				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', ed_id, edType);
 			}
 	
 			function onEachFeature(feature, layer) {
@@ -401,7 +409,7 @@
 			"Constituencies": consituencies,
 			"Counties": geojson
 		};
-
+		
 		L.control.layers(overlays).addTo(map);
 		</script>
 	

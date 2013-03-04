@@ -14,13 +14,13 @@ function get_XmlHttp() {
 }
 
 // sends data to a php file, via POST, and displays the received answer
-function ajaxrequest(php_file, tagID, loading, countyid) {
+function ajaxrequest(php_file, tagID, loading, countyid, edType) {
   var request =  get_XmlHttp();		// call the function for the XMLHttpRequest instance
   document.getElementById("loading").style.display = 'block';
   //document.getElementById("formstuff").style.display = 'none';
   // create pairs index=value with data that must be sent to server
   //var  the_data = 'bla='+document.getElementById('dtb').value+'&test='+document.getElementById('dta').value;
-	var the_data = 'countyid='+countyid;
+	var the_data = 'countyid='+countyid+'&type='+edType;
   request.open("POST", php_file, true);			// set the request
 
   // adds  a header to tell the PHP script to recognize the data as is sent via POST
