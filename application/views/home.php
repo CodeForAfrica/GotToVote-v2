@@ -279,15 +279,13 @@
 		<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
     	<script src="<?php echo base_url(); ?>assets/js/leaflet-google.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
-	
+			<script type="text/javascript" src="http://localhost/election_toolkit/constituencies/test.geojson"></script>
 		<script type="text/javascript">
 	
 			var map = L.map('map').setView([-1.24, 38.8], 6);
 			var googleLayer = new L.Google('HYBRID');
 			map.addLayer(googleLayer);
-	
-	
-			// control that shows state info on hover
+				// control that shows state info on hover
 			var info = L.control();
 	
 			info.onAdd = function (map) {
@@ -302,8 +300,29 @@
 			};
 	
 			info.addTo(map);
+		var legend = L.control({position: 'bottomright'});
 	
+			legend.onAdd = function (map) {
 	
+				var div = L.DomUtil.create('div', 'info legend'),
+					grades = [0, 100000, 120000, 150000, 200000, 250000, 300000, 500000, 1000000],
+					labels = [],
+					from, to;
+	
+				for (var i = 0; i < grades.length; i++) {
+					from = grades[i];
+					to = grades[i + 1];
+	
+					labels.push(
+						'<i style="background:' + getColor(from + 1) + '"></i> ' +
+						from + (to ? '&ndash;' + to : '+'));
+				}
+	
+				div.innerHTML = labels.join('<br>');
+				return div;
+			};
+	
+			legend.addTo(map);
 			// get color depending on population density value
 			function getColor(d) {
 				return d > 1000000 ? '#000000' :
@@ -346,7 +365,8 @@
 			}
 	
 			var geojson;
-	
+			var consituencies;
+			
 			function resetHighlight(e) {
 				geojson.resetStyle(e.target);
 				info.update();
@@ -367,38 +387,22 @@
 				});
 			}
 	
-			geojson = L.geoJson(countyData,{
-				style: style,
-				onEachFeature: onEachFeature
-			}).addTo(map);
+		geojson = L.geoJson(countyData, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
 	
-			map.attributionControl.addAttribution('Electoral data &copy; <a href="http://iebc.or.ke/">IEBC</a>');
-	
-	
-			var legend = L.control({position: 'bottomright'});
-	
-			legend.onAdd = function (map) {
-	
-				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [0, 100000, 120000, 150000, 200000, 250000, 300000, 500000, 1000000],
-					labels = [],
-					from, to;
-	
-				for (var i = 0; i < grades.length; i++) {
-					from = grades[i];
-					to = grades[i + 1];
-	
-					labels.push(
-						'<i style="background:' + getColor(from + 1) + '"></i> ' +
-						from + (to ? '&ndash;' + to : '+'));
-				}
-	
-				div.innerHTML = labels.join('<br>');
-				return div;
-			};
-	
-			legend.addTo(map);
-	
+		consituencies = L.geoJson(constData, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+		
+		var overlays = {
+			"Constituencies": consituencies,
+			"Counties": geojson
+		};
+
+		L.control.layers(overlays).addTo(map);
 		</script>
 	
 	
