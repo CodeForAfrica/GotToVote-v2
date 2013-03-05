@@ -283,7 +283,7 @@
 		<script type="text/javascript">
 	
 			var map = L.map('map').setView([-1.24, 38.8], 6);
-			var googleLayer = new L.Google('HYBRID');
+			var googleLayer = new L.Google('ROADMAP');
 			map.addLayer(googleLayer);
 				// control that shows state info on hover
 			var info = L.control();
@@ -305,7 +305,7 @@
 			legend.onAdd = function (map) {
 	
 				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [0, 100000, 120000, 150000, 200000, 250000, 300000, 500000, 1000000],
+					grades = [0, 10000, 25000, 50000, 100000, 300000, 500000, 1000000],
 					labels = [],
 					from, to;
 	
