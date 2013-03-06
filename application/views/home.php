@@ -413,9 +413,12 @@
 		L.control.layers(overlays).addTo(map);
 		</script>
 	
-	
-	</div>
 
+	</div>
+</div>
+	<div style="width:1025px;margin:auto;">
+<div><iframe src="http://vote.iebc.or.ke/results/" width="1024px" height="650" frameborder="0"></iframe>
+	</div>
 </div>
 
 <!-- Scripts -->
