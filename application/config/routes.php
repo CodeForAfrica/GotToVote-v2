@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "home";
+$route['sms-widget'] = "smswidget";
 $route['404_override'] = '';
 
 
