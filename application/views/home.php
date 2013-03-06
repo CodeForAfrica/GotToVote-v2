@@ -3,10 +3,15 @@
 		<div class="row">
 			<div class="span5">
 				<br />
-				<h1 style="font-weight: 500;">Share Peace Message via SMS!</h1>
-				<p class="lead">Fill the form and share the peace message via SMS for FREE!</p>
+				<h1 style="font-weight: 500;">Share the Message!</h1>
+				<p class="lead">Fill the form and share this peace message with your friends free!</p>
 				<br />
-				<a class="btn btn-large btn-success" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+				<a class="btn btn-large btn-success homebtn" href="#" id="findlink" onclick="$('#find').scrollTop();"><i class="icon-group icon-white"></i> See The Candidates</a>
+				<br /><br />
+				<a class="btn btn-large btn-success homebtn" href="https://uchaguzi.co.ke/reports/submit" target='_blank'><i class="icon-bullhorn icon-white"></i> Make a Report</a>
+				<br /><br />
+				<a class="btn btn-large btn-success homebtn" href="http://gottovote.code4kenya.org/" target='_blank'><i class="icon-search icon-white"></i> Registration Centers</a>
+
 			</div>
 			
 			<div style="text-align: right; padding-top: 30px;" class="span7">
@@ -38,36 +43,36 @@
 													<div>
 														<div class="input-prepend" style="float: right;" id="senderMob">
 														  	<span class="add-on">+254</span>
-															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();">
+															<input class="span2" name="sendernumber" id="prependedInput" type="text" placeholder="722722722" required onkeyup="editMsgRT();" maxlength="9">
 														</div>
 													</div>
 													<div class="clearfix"></div>
 													<span class="help-block" style="text-align: right;">*All fields are required.</span>
 													<p><b>Peace Message:</b></p>
-													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="I choose peace this coming Kenya General Elections. You can too on GotToVote http://bit.ly/gtvke - [Name] [0722722722]"></textarea>
+													<textarea rows="4" class="span4" id="disabledInput" name="msgTextArea" disabled placeholder="Hi. Thank you for keeping the peace & making history along with thousands of Kenyans like you. Send this SMS free at http://bit.ly/gtvke From: [0722722722]"></textarea>
 												</div>
 												<div class="span3">
 													<div style="text-align: right;">
 														<p><b>RECIPIENTS</b></p>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" >
+															<input id="recipient1" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722723" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" >
+															<input id="recipient2" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722724" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" >
+															<input id="recipient3" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722725" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" >
+															<input id="recipient4" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722726" maxlength="9">
 														</div>
 														<div class="input-prepend">
 														  	<span class="add-on">+254</span>
-															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" >
+															<input id="recipient5" class="span2" id="prependedInput" type="text" name="recipient[]" placeholder="722722727" maxlength="9">
 														</div>
 														<div class="clearfix"></div>
 														<br />
@@ -121,7 +126,7 @@
 
 <div class="container">
 
-	<div class="jumbotron" id="jumbotron">
+	<div class="jumbotron" id="jumbotron" style="display:none;">
 		
 		<div class="clock">
 			<!-- Days -->
@@ -273,19 +278,16 @@
 	
 		<script src="<?php echo base_url(); ?>assets/js/ajax_request.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
+		<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    	<script src="<?php echo base_url(); ?>assets/js/leaflet-google.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
-	
+			<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const.geojson"></script>
 		<script type="text/javascript">
-
-			var map = L.map('map').setView([-0.06592, 38.10059], 6);
 	
-			var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
-				attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-				key: 'BC9A493B41014CAABB98F0471D759707',
-				styleId: 22677
-			}).addTo(map);
-	
-	
+			var map = L.map('map').setView([-1.24, 38.8], 6);
+			var googleLayer = new L.Google('ROADMAP');
+			map.addLayer(googleLayer);
+			
 			// control that shows state info on hover
 			var info = L.control();
 	
@@ -296,23 +298,44 @@
 			};
 	
 			info.update = function (props) {
-				this._div.innerHTML = '<h4>Voter Registration per County</h4>' +  (props ?
-					'<b>' + props.COUNTY_NAM + '</b>: ' + props.REG : 'Hover over a county');
+				this._div.innerHTML = '<h4>Voter Registration</h4>' +  (props ?
+					'<b>' + props.EDNAME + '</b>: ' + props.REG : 'Hover over a region');
 			};
 	
 			info.addTo(map);
+		var legend = L.control({position: 'bottomright'});
 	
+			legend.onAdd = function (map) {
 	
+				var div = L.DomUtil.create('div', 'info legend'),
+					grades = [0, 10000, 25000, 50000, 100000, 300000, 500000, 1000000],
+					labels = [],
+					from, to;
+	
+				for (var i = 0; i < grades.length; i++) {
+					from = grades[i];
+					to = grades[i + 1];
+	
+					labels.push(
+						'<i style="background:' + getColor(from + 1) + '"></i> ' +
+						from + (to ? '&ndash;' + to : '+'));
+				}
+	
+				div.innerHTML = labels.join('<br>');
+				return div;
+			};
+	
+			legend.addTo(map);
 			// get color depending on population density value
 			function getColor(d) {
 				return d > 1000000 ? '#000000' :
 					   d > 500000 ? '#800026' :
 				       d > 300000  ? '#BD0026' :
-				       d > 250000  ? '#E31A1C' :
-				       d > 200000  ? '#FC4E2A' :
-				       d > 150000   ? '#FD8D3C' :
-				       d > 120000   ? '#FEB24C' :
-				       d > 100000   ? '#FED976' :
+				       d > 100000  ? '#E31A1C' :
+				       d > 50000  ? '#FC4E2A' :
+				       d > 25000   ? '#FD8D3C' :
+				       d > 10000   ? '#FEB24C' :
+				       d > 0   ? '#FED976' :
 				                  '#FFEDA0';
 			}
 	
@@ -345,7 +368,8 @@
 			}
 	
 			var geojson;
-	
+			var consituencies;
+			
 			function resetHighlight(e) {
 				geojson.resetStyle(e.target);
 				info.update();
@@ -354,8 +378,16 @@
 			function zoomToFeature(e) {
 				map.fitBounds(e.target.getBounds());
 				var layer = e.target;
-				
-				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', layer.feature.properties.OBJECTID_1);
+				var ed_id;
+				var edType;
+				if((layer.feature.properties.OBJECTID_1)==null || (layer.feature.properties.OBJECTID_1)==false){
+					ed_id = layer.feature.properties.OBJECTID;
+					edType = 2;
+				}else{
+					ed_id = layer.feature.properties.OBJECTID_1;
+					edType = 1;
+				}
+				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', ed_id, edType);
 			}
 	
 			function onEachFeature(feature, layer) {
@@ -366,77 +398,28 @@
 				});
 			}
 	
-			geojson = L.geoJson(countyData,{
-				style: style,
-				onEachFeature: onEachFeature
-			}).addTo(map);
+		geojson = L.geoJson(countyData, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
 	
-			map.attributionControl.addAttribution('Electoral data &copy; <a href="http://iebc.or.ke/">IEBC</a>');
-	
-	
-			var legend = L.control({position: 'bottomright'});
-	
-			legend.onAdd = function (map) {
-	
-				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [0, 100000, 120000, 150000, 200000, 250000, 300000, 500000, 1000000],
-					labels = [],
-					from, to;
-	
-				for (var i = 0; i < grades.length; i++) {
-					from = grades[i];
-					to = grades[i + 1];
-	
-					labels.push(
-						'<i style="background:' + getColor(from + 1) + '"></i> ' +
-						from + (to ? '&ndash;' + to : '+'));
-				}
-	
-				div.innerHTML = labels.join('<br>');
-				return div;
-			};
-	
-			legend.addTo(map);
-	
+		consituencies = L.geoJson(constData, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+		
+		var overlays = {
+			"Constituencies": consituencies,
+			"Counties": geojson
+		};
+		
+		L.control.layers(overlays).addTo(map);
 		</script>
 	
 	
 	</div>
 
-	<hr style="margin-top: 90px;"/>
-
-	<div class="social-icons">
-		<h3>Share GotToVote.co.ke</h3>
-		<p> 
-		<a href="javascript:void(0);" name="Share_TW" title="Share on Twitter | GotToVote! Ke"
-		onClick='window.open("http://twitter.com/intent/tweet?text=Kenya+decides%21+Share+the+peace+message+and+find+your+candidates+on+http%3A%2F%2Fgottovote.co.ke+%23GotToVote","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/twitter.png" alt="Share on Twitter" /></a>
-		<a href="javascript:void(0);" name="Share_FB" title="Share on FB | GotToVote! Ke"
-		onClick='window.open("http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgottovote.co.ke%2F&t=Kenya+decides%21+Share+the+peace+message+and+find+your+candidates+on+GotToVote.","GotToVote","width=550,height=270");'><img src="<?php echo base_url(); ?>assets/img/social/facebook.png" alt="Share on Facebook" /></a>
-		<a href="https://plus.google.com/share?url=gottovote.co.ke" onclick="javascript:window.open(this.href,
-		  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="<?php echo base_url(); ?>assets/img/social/googleplus.png" alt="Share on Google Plus" /></a>
-		</p>
-	</div>
-	
-	<table align="center" style="text-align: center; width: 90%;"><tr><td>
-		<a class="twitter-timeline" href="https://twitter.com/search?q=%23GotToVote" data-widget-id="280061031194181635">Tweets about "#GotToVote"</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	</td></tr></table>
-	
-	<hr style="margin: 50px 0 30px;"/>
-	
-	<div class="home-logos">
-		<p style="vertical-align: middle; float: left; margin-top: 10px;">
-			<img src="<?php echo base_url(); ?>assets/img/logos/hivos.jpg" style="width: 100px;" alt="Hivos" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/ami.png" style="width: 120px;" alt="AMI" />
-			<img src="<?php echo base_url(); ?>assets/img/logos/c4k_logo.png" style="width: 250px;" alt="Code4Kenya" />
-		</p>
-		<div style="float: right; text-align: center;">
-			<img src="<?php echo base_url(); ?>assets/img/logos/oi.png" style="width: 140px;" alt="Open Institute" />
-			<p style="margin: 0; color: #777;">Implementing Partner</p>
-		</div>
-	</div>
 </div>
-
 
 <!-- Scripts -->
 

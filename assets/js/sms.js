@@ -3,7 +3,7 @@ $('#smsCarousel').carousel({
 })
 
 function editMsgRT() {
-	var theMsg = "Hi. Join me in voting peacefully in this historic elections. Send this SMS free to your friends on http://bit.ly/gtvke  From: ";
+	var theMsg = "Hi. Thank you for keeping the peace & making history along with thousands of Kenyans like you. Send this SMS free at http://bit.ly/gtvke From: ";
 	var senderMob = '0'+$('#senderMob input').val();
 	
 	if ($('#senderMob input').val()=='') {

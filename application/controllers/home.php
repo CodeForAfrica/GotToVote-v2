@@ -41,15 +41,7 @@ class Home extends CI_Controller {
 		{
 			
 			$countyid = $_POST['countyid'];
-			//find county information
-			$this->db->where('countyid',$countyid);
-			$result = $this->db->get('county');
-			$result = $result->result_array();
-			$result = $result[0];
-			$countyinfo['registered_voters'] = $result['registered'];
-			$countyinfo['county_name'] = $result['name'];
-			$data['countyinfo'] = $countyinfo;
-			
+			$edType = $_POST['edType'];
 			//show presidential aspirants before county selected
 			$this->db->select('presidential_candidates.surname, 
 	                   presidential_candidates.other_name, 
@@ -60,6 +52,18 @@ class Home extends CI_Controller {
 			$result = $this->db->get();
 	
 			$data['presidential_aspirants'] = $result->result_array();
+			
+			if($edType=='1'){
+			//check electoral district
+			
+			//find county information
+			$this->db->where('countyid',$countyid);
+			$result = $this->db->get('county');
+			$result = $result->result_array();
+			$result = $result[0];
+			$countyinfo['registered_voters'] = $result['registered'];
+			$countyinfo['county_name'] = $result['name'];
+			$data['countyinfo'] = $countyinfo;
 			
 			//find gurbernatorial aspirants
 			$this->db->select('gurbernatorial_candidates.surname, 
@@ -96,8 +100,33 @@ class Home extends CI_Controller {
 			$result = $this->db->get();
 	
 			$data['womenrep_aspirants'] = $result->result_array();
-	
 			$this->load->view('aspirants', $data);
+			}
+			else{
+			//find constituency information
+			$this->db->where('constid',$countyid);
+			$result = $this->db->get('constituency');
+			$result = $result->result_array();
+			$result = $result[0];
+			$countyinfo['registered_voters'] = $result['registered'];
+			$countyinfo['county_name'] = $result['name'];
+			$data['countyinfo'] = $countyinfo;
+			
+			//find national assembly aspirants
+			$this->db->select('nationalassembly_candidates.surname, 
+	                   nationalassembly_candidates.other_name, 
+	                   nationalassembly_candidates.running_mate,   
+	                   parties.name');
+			$this->db->from('nationalassembly_candidates');
+			$this->db->where('constituency',$countyid);
+			$this->db->join('parties', 'nationalassembly_candidates.party= parties.id');
+			$result = $this->db->get();
+	
+			$data['nationalassembly_aspirants'] = $result->result_array();
+			$this->load->view('natassembly', $data);
+			}
+			
+			
 		}
 }
 

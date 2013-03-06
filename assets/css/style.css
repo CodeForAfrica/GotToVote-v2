@@ -22,7 +22,9 @@
  		.home-logos img:hover{
  			opacity: 1.0;
  		}
-
+.homebtn{
+  min-width:200px;
+}
 #divShareSocial a {
 	text-decoration: none;
 	padding: 10px;
