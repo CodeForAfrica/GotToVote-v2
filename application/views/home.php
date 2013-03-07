@@ -229,7 +229,7 @@
 		<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
     	<script src="<?php echo base_url(); ?>assets/js/leaflet-google.js"></script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
-			<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const.geojson"></script>
+			<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const_small.geojson"></script>
 		<script type="text/javascript">
 	
 			var map = L.map('map').setView([-1.24, 38.8], 6);
