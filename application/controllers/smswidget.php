@@ -21,56 +21,7 @@ class Smswidget extends CI_Controller {
 	{
 		$this->load->view('widgets/sms-widget');
 	}
-	public function process()
-	{
-		
-		$countyid = $_POST['countyid'];
-		//find county information
-		$this->db->where('countyid',$countyid);
-		$result = $this->db->get('county');
-		$result = $result->result_array()[0];
-		$countyinfo['registered_voters'] = $result['registered'];
-		$countyinfo['county_name'] = $result['name'];
-		$data['countyinfo'] = $countyinfo;
-		
-		//find gurbernatorial aspirants
-		$this->db->select('gurbernatorial_candidates.surname, 
-                   gurbernatorial_candidates.other_name, 
-                   gurbernatorial_candidates.running_mate,   
-                   parties.name');
-		$this->db->from('gurbernatorial_candidates');
-		$this->db->where('countyid',$countyid);
-		$this->db->join('parties', 'gurbernatorial_candidates.party= parties.id');
-		$result = $this->db->get();
-
-		$data['gurbernatorial_aspirants'] = $result->result_array();
-		
-		//find senatorial aspirants
-		$this->db->select('senatorial_candidates.surname, 
-                   senatorial_candidates.other_name, 
-                   senatorial_candidates.running_mate,   
-                   parties.name');
-		$this->db->from('senatorial_candidates');
-		$this->db->where('countyid',$countyid);
-		$this->db->join('parties', 'senatorial_candidates.party= parties.id');
-		$result = $this->db->get();
-
-		$data['senatorial_aspirants'] = $result->result_array();
-		
-		//find womenrep aspirants
-		$this->db->select('womenrep_candidates.surname, 
-                   womenrep_candidates.other_name, 
-                   womenrep_candidates.running_mate,   
-                   parties.name');
-		$this->db->from('womenrep_candidates');
-		$this->db->where('countyid',$countyid);
-		$this->db->join('parties', 'womenrep_candidates.party= parties.id');
-		$result = $this->db->get();
-
-		$data['womenrep_aspirants'] = $result->result_array();
-
-		$this->load->view('aspirants', $data);
-	}
+	
 }
 
 /* End of file welcome.php */

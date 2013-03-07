@@ -31,6 +31,8 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor/jquery-1.9.0.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/vendor/bootstrap.min.js"></script>
         
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+        
     </head>
     <body style="padding-bottom: 40px;">
         <!--[if lt IE 7]>
@@ -42,7 +44,7 @@
         		<div class="masthead">
         			<a href="<?php echo base_url(); ?>" style="color: #777; text-decoration: none;">
         				<img src="<?php echo base_url(); ?>assets/img/logo_2.png" alt="GotToVote! Logo" />
-        				<span style="position:relative;left:-200px;top:35px">A Code4Kenya Project</span>
+        				<span style="position:relative; left: -210px; top: 38px;">A Code4Kenya Project</span>
         			</a>
         			<ul class="nav nav-pills pull-right">
         				<li class="active"><a href="<?php echo base_url(); ?>" style="line-height: 20px;">Home</a></li>

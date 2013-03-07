@@ -131,6 +131,8 @@
 					</div>
 					
 				</div>
+				
+				<p style="text-align: left;">Add this SMS gadget to your website by copying the code below: <pre style="text-align: left; padding: 5px 10px;" class="prettyprint">&lt;iframe src="http://gottovote.co.ke/smswidget" height="523px" width="560px"&gt;&lt;/iframe&gt;</pre></p>
 			</div>
 		</div>
 	</div>
