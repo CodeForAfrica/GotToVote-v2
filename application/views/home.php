@@ -256,10 +256,15 @@
 				this.update();
 				return this._div;
 			};
-	
+		function commaSeparateNumber(val){
+	    while (/(\d+)(\d{3})/.test(val.toString())){
+	      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+	    }
+	    return val;
+	  }
 			info.update = function (props) {
 				this._div.innerHTML = '<h4>Voter Registration</h4>' +  (props ?
-					'<b>' + props.EDNAME + '</b>: ' + props.REG : 'Hover over a region');
+					'<b>' + props.EDNAME + '</b>: ' + commaSeparateNumber(props.REG) : 'Hover over a region');
 			};
 	
 			info.addTo(map);
