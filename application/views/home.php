@@ -138,10 +138,6 @@
 	</div>
 </div>
 
-<div style="width:1025px;margin:auto;">
-	<iframe src="http://vote.iebc.or.ke/results/" width="1024px" height="655" frameborder="0"></iframe>
-</div>
-
 <div class="container">
 	
 	<a name="find" id="find"></a>
@@ -266,7 +262,7 @@
 	  }
 			info.update = function (props) {
 				this._div.innerHTML = '<h4>Voter Registration</h4>' +  (props ?
-					'<b>' + props.EDNAME + '</b>: ' + commaSeparateNumber(props.REG) : 'Hover over a region');
+					'<b>' + props.EDNAME + '</b>: ' + commaSeparateNumber(props.REG)+'<br>Poverty Rate: '+props.POVERTY : 'Hover over a region');
 			};
 	
 			info.addTo(map);
