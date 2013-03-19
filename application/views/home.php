@@ -255,6 +255,7 @@
 		?>
 		</script>
 		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const_small.geojson"></script>
+		
 		<script type="text/javascript">
 	
 			var map = L.map('map').setView([-1.24, 38.8], 6);
@@ -384,13 +385,48 @@
 			style: style,
 			onEachFeature: onEachFeature
 		});
-		
 		var overlays = {
 			"Constituencies": consituencies,
 			"Counties": geojson
 		};
 		
-		L.control.layers(overlays).addTo(map);
+		var LeafIcon = L.Icon.extend({
+			options: {
+				shadowUrl: 'http://leafletjs.com/docs/images/leaf-shadow.png',
+				iconSize:     [38, 95],
+				shadowSize:   [50, 64],
+				iconAnchor:   [22, 94],
+				shadowAnchor: [4, 62],
+				popupAnchor:  [-3, -76]
+			}
+		});
+
+		var greenIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-green.png'}),
+			redIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-red.png'}),
+			orangeIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-orange.png'});
+
+
+
+		var cordareas = new L.LayerGroup();
+		<?php
+		foreach($cordareas as $cordarea){
+			print 'L.marker(['.$cordarea['center'].'], {icon: orangeIcon}).bindPopup("<b>'.$cordarea['EDNAME'].'</b><br />").addTo(cordareas);';
+			
+		}
+		?>
+		var jareas = new L.LayerGroup();
+		<?php
+		foreach($jubileeareas as $jarea){
+			print 'L.marker(['.$jarea['center'].'], {icon: redIcon}).bindPopup("<b>'.$jarea['EDNAME'].'</b><br />").addTo(jareas);';
+			
+		}
+		?>
+		var baseLayers = {
+			"Jubilee Won": jareas,
+			"Coord Won": cordareas
+		};
+		
+		L.control.layers(overlays, baseLayers).addTo(map);
 		</script>
 	
 

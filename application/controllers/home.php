@@ -19,14 +19,30 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		
+		//get shapefiles and datasets
 		$this->db->select('*');
 		$this->db->from('counties');
 		$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
 		$this->db->join('poverty', 'counties.OBJECTID=poverty.countyid', 'left');
 		$countydata = $this->db->get();
-		
 		$data['countydata'] = $countydata->result_array();
+		
+		//show cord areas
+		$this->db->select('*');
+		$this->db->from('winners_county');
+		$this->db->where('candidate', '8');
+		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid');
+		$cordareas = $this->db->get();
+		$data['cordareas'] = $cordareas->result_array();
+		
+		//show jubilee strongholds
+		$this->db->select('*');
+		$this->db->from('winners_county');
+		$this->db->where('candidate', '2');
+		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid');
+		$jubileeareas = $this->db->get();
+		$data['jubileeareas'] = $jubileeareas->result_array();		
+		
 		
 		//show presidential aspirants before county selected
 		$this->db->select('presidential_candidates.surname, 
