@@ -19,6 +19,15 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		
+		$this->db->select('*');
+		$this->db->from('counties');
+		$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
+		$this->db->join('poverty', 'counties.OBJECTID=poverty.countyid', 'left');
+		$countydata = $this->db->get();
+		
+		$data['countydata'] = $countydata->result_array();
+		
 		//show presidential aspirants before county selected
 		$this->db->select('presidential_candidates.surname, 
                    presidential_candidates.other_name, 
@@ -27,7 +36,7 @@ class Home extends CI_Controller {
 		$this->db->from('presidential_candidates');
 		$this->db->join('parties', 'presidential_candidates.party= parties.id');
 		$result = $this->db->get();
-
+		
 		$data['presidential_aspirants'] = $result->result_array();
 		
 		$data['title'] = 'Home';

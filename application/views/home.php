@@ -239,8 +239,22 @@
 		<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
 		<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
     	<script src="<?php echo base_url(); ?>assets/js/leaflet-google.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/counties_small.geojson"></script>
-			<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const_small.geojson"></script>
+    	<script type="text/javascript">
+		<?php
+		print 'var countyData ={
+		"type": "FeatureCollection",
+                                                                                
+		"features": [';
+		$data2 = array();
+		foreach($countydata as $county){
+			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": { "OBJECTID": '.$county['OBJECTID'].', "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
+		}
+		$data2 = implode(',', $data2);
+		print $data2;
+		print ']}';
+		?>
+		</script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const_small.geojson"></script>
 		<script type="text/javascript">
 	
 			var map = L.map('map').setView([-1.24, 38.8], 6);
