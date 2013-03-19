@@ -356,14 +356,15 @@
 			function zoomToFeature(e) {
 				map.fitBounds(e.target.getBounds());
 				var layer = e.target;
-				var ed_id;
+				var ed_id = layer.feature.properties.OBJECTID;
 				var edType;
-				if((layer.feature.properties.OBJECTID_1)==null || (layer.feature.properties.OBJECTID_1)==false){
-					ed_id = layer.feature.properties.OBJECTID;
-					edType = 2;
-				}else{
-					ed_id = layer.feature.properties.OBJECTID_1;
+				
+				if((layer.feature.properties.CONST_CODE)==null || (layer.feature.properties.CONST_CODE)==false){
+					
 					edType = 1;
+				}else{
+					
+					edType = 2;
 				}
 				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', ed_id, edType);
 			}
