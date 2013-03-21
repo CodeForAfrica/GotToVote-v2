@@ -214,8 +214,9 @@
 						$i = 1; 
 						foreach($presidential_aspirants as $candidate){ ?>
 						<div class="span4">
+							<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
 							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
-							<small><?php echo $candidate['name']; ?></small>
+							<small> <?php echo $candidate['name']; ?></small>
 							<p><b>Running Mate: </b> <?php echo $candidate['running_mate']; ?></p>
 						
 					<?php 

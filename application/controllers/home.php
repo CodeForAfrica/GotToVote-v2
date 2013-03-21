@@ -51,8 +51,10 @@ class Home extends CI_Controller {
 		//show presidential aspirants before county selected
 		$this->db->select('presidential_candidates.surname, 
                    presidential_candidates.other_name, 
-                   presidential_candidates.running_mate,   
-                   parties.name');
+                   presidential_candidates.running_mate,  
+                   presidential_candidates.winner, 
+                   parties.name,
+                   parties.picture');
 		$this->db->from('presidential_candidates');
 		$this->db->join('parties', 'presidential_candidates.party= parties.id');
 		$result = $this->db->get();
@@ -74,7 +76,8 @@ class Home extends CI_Controller {
 			//show presidential aspirants before county selected
 			$this->db->select('presidential_candidates.surname, 
 	                   presidential_candidates.other_name, 
-	                   presidential_candidates.running_mate,   
+	                   presidential_candidates.running_mate,  
+	                   parties.picture, 
 	                   parties.name');
 			$this->db->from('presidential_candidates');
 			$this->db->join('parties', 'presidential_candidates.party= parties.id');
@@ -97,7 +100,8 @@ class Home extends CI_Controller {
 			//find gurbernatorial aspirants
 			$this->db->select('gurbernatorial_candidates.surname, 
 	                   gurbernatorial_candidates.other_name, 
-	                   gurbernatorial_candidates.running_mate,   
+	                   gurbernatorial_candidates.running_mate,  
+	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('gurbernatorial_candidates');
 			$this->db->where('countyid',$countyid);
@@ -109,7 +113,8 @@ class Home extends CI_Controller {
 			//find senatorial aspirants
 			$this->db->select('senatorial_candidates.surname, 
 	                   senatorial_candidates.other_name, 
-	                   senatorial_candidates.running_mate,   
+	                   senatorial_candidates.running_mate,  
+	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('senatorial_candidates');
 			$this->db->where('countyid',$countyid);
@@ -121,7 +126,8 @@ class Home extends CI_Controller {
 			//find womenrep aspirants
 			$this->db->select('womenrep_candidates.surname, 
 	                   womenrep_candidates.other_name, 
-	                   womenrep_candidates.running_mate,   
+	                   womenrep_candidates.running_mate,  
+	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('womenrep_candidates');
 			$this->db->where('countyid',$countyid);
@@ -144,7 +150,8 @@ class Home extends CI_Controller {
 			//find national assembly aspirants
 			$this->db->select('nationalassembly_candidates.surname, 
 	                   nationalassembly_candidates.other_name, 
-	                   nationalassembly_candidates.running_mate,   
+	                   nationalassembly_candidates.running_mate, 
+	                   parties.picture,   
 	                   parties.name');
 			$this->db->from('nationalassembly_candidates');
 			$this->db->where('constituency',$countyid);

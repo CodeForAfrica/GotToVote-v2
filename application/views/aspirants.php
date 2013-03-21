@@ -15,6 +15,7 @@
 						$i = 1; 
 						foreach($presidential_aspirants as $candidate){ ?>
 						<div class="span4">
+							<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
 							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
 							<small><?php echo $candidate['name']; ?></small>
 							<p><b>Running Mate: </b> <?php echo $candidate['running_mate']; ?></p>
@@ -38,6 +39,7 @@
 			<div class="row">
 				<?php foreach($gurbernatorial_aspirants as $candidate){ ?>
 					<div class="span4">
+						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<p><b>Running mate: </b> <?php echo $candidate['running_mate']; ?></p>
@@ -50,6 +52,7 @@
 			<div class="row">
 				<?php foreach($senatorial_aspirants as $candidate){ ?>
 					<div class="span4">
+						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<hr />
@@ -61,6 +64,7 @@
 			<div class="row">
 				<?php foreach($womenrep_aspirants as $candidate){ ?>
 					<div class="span4">
+						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
 						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<hr />
