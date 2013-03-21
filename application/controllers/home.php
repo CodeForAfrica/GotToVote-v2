@@ -30,18 +30,22 @@ class Home extends CI_Controller {
 		//show cord areas
 		$this->db->select('*');
 		$this->db->from('winners_county');
-		$this->db->where('candidate', '8');
-		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid');
+		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid', 'inner');
+		$this->db->join('poverty', 'poverty.countyid=winners_county.countyid', 'inner');
+		$this->db->join('voters', 'voters.countyid=winners_county.countyid', 'inner');
+		$this->db->where('winners_county.candidate', '8');
 		$cordareas = $this->db->get();
-		$data['cordareas'] = $cordareas->result_array();
+		$data['cordarea'] = $cordareas->result_array();
 		
 		//show jubilee strongholds
 		$this->db->select('*');
 		$this->db->from('winners_county');
-		$this->db->where('candidate', '2');
-		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid');
+		$this->db->join('counties', 'counties.OBJECTID=winners_county.countyid', 'inner');
+		$this->db->join('poverty', 'poverty.countyid=winners_county.countyid', 'inner');
+		$this->db->join('voters', 'voters.countyid=winners_county.countyid', 'inner');
+		$this->db->where('winners_county.candidate', '2');
 		$jubileeareas = $this->db->get();
-		$data['jubileeareas'] = $jubileeareas->result_array();		
+		$data['jubileearea'] = $jubileeareas->result_array();		
 		
 		
 		//show presidential aspirants before county selected

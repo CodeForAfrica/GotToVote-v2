@@ -239,29 +239,39 @@
 		<script src="<?php echo base_url(); ?>assets/js/leaflet.js"></script>
 		<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
     	<script src="<?php echo base_url(); ?>assets/js/leaflet-google.js"></script>
-    	<script type="text/javascript">
+ 		<script type="text/javascript">
 		<?php
 		print 'var countyData ={
 		"type": "FeatureCollection",
                                                                                 
 		"features": [';
 		$data2 = array();
-		foreach($countydata as $county){
-			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": { "OBJECTID": '.$county['OBJECTID'].', "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
+		foreach($cordarea as $county){
+			$voterturnout = (($county['total']/$county['REG'])*100);
+			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": { "OBJECTID": '.$county['OBJECTID'].', "WINNER":8, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%", "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
 		}
+		foreach($jubileearea as $county){
+			$voterturnout = (($county['total']/$county['REG'])*100);
+			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": { "OBJECTID": '.$county['OBJECTID'].', "WINNER":2, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%", "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
+		}
+		
 		$data2 = implode(',', $data2);
 		print $data2;
 		print ']}';
 		?>
-		</script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/const_small.geojson"></script>
-		
+		</script>	
 		<script type="text/javascript">
-	
+		
 			var map = L.map('map').setView([-1.24, 38.8], 6);
-			var googleLayer = new L.Google('ROADMAP');
-			map.addLayer(googleLayer);
-				// control that shows state info on hover
+			
+			var cloudmade = L.tileLayer('http://{s}.tile.cloudmade.com/{key}/{styleId}/256/{z}/{x}/{y}.png', {
+				attribution: 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+				key: 'BC9A493B41014CAABB98F0471D759707',
+				styleId: 22677
+			}).addTo(map);
+			
+			//add information pane 
+		
 			var info = L.control();
 	
 			info.onAdd = function (map) {
@@ -269,166 +279,99 @@
 				this.update();
 				return this._div;
 			};
-		function commaSeparateNumber(val){
-	    while (/(\d+)(\d{3})/.test(val.toString())){
-	      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
-	    }
-	    return val;
-	  }
+		
+			function commaSeparateNumber(val){
+	    	while (/(\d+)(\d{3})/.test(val.toString())){
+	      	val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+	    	}
+	    	return val;
+	  		}
+		
 			info.update = function (props) {
-				this._div.innerHTML = '<h4>Voter Registration</h4>' +  (props ?
-					'<b>' + props.EDNAME + '</b>: ' + commaSeparateNumber(props.REG)+'<br>Poverty Rate: '+props.POVERTY : 'Hover over a region');
+				this._div.innerHTML = '<h4>County Information</h4>' +  (props ?
+					'<b>' + props.EDNAME + '</b><br />Registered voters: ' + commaSeparateNumber(props.REG)+'<br>Voter Turnout: '+props.TURNOUT+'<br>Poverty Rate: '+props.POVERTY : 'Hover over a region');
 			};
 	
 			info.addTo(map);
-		var legend = L.control({position: 'bottomright'});
 	
-			legend.onAdd = function (map) {
-	
-				var div = L.DomUtil.create('div', 'info legend'),
-					grades = [0, 10000, 25000, 50000, 100000, 300000, 500000, 1000000],
-					labels = [],
-					from, to;
-	
-				for (var i = 0; i < grades.length; i++) {
-					from = grades[i];
-					to = grades[i + 1];
-	
-					labels.push(
-						'<i style="background:' + getColor(from + 1) + '"></i> ' +
-						from + (to ? '&ndash;' + to : '+'));
-				}
-	
-				div.innerHTML = labels.join('<br>');
-				return div;
+		// get color depending on population density value
+		function getColor(d) {
+			return d == 2 ? '#ff0000' : 
+			       d == 8   ? '#fd8a27' :
+			                  '#FFEDA0';
+		}
+
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.WINNER)
 			};
-	
-			legend.addTo(map);
-			// get color depending on population density value
-			function getColor(d) {
-				return d > 1000000 ? '#000000' :
-					   d > 500000 ? '#800026' :
-				       d > 300000  ? '#BD0026' :
-				       d > 100000  ? '#E31A1C' :
-				       d > 50000  ? '#FC4E2A' :
-				       d > 25000   ? '#FD8D3C' :
-				       d > 10000   ? '#FEB24C' :
-				       d > 0   ? '#FED976' :
-				                  '#FFEDA0';
+		}
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
 			}
-	
-			function style(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'white',
-					dashArray: '3',
-					fillOpacity: 0.7,
-					fillColor: getColor(feature.properties.REG)
-				};
-			}
-	
-			function highlightFeature(e) {
-				var layer = e.target;
-	
-				layer.setStyle({
-					weight: 5,
-					color: '#666',
-					dashArray: '',
-					fillOpacity: 0.7
-				});
-	
-				if (!L.Browser.ie && !L.Browser.opera) {
-					layer.bringToFront();
-				}
-	
-				info.update(layer.feature.properties);
-			}
-	
-			var geojson;
-			var consituencies;
-			
-			function resetHighlight(e) {
-				geojson.resetStyle(e.target);
-				info.update();
-			}
-	
-			function zoomToFeature(e) {
+			info.update(layer.feature.properties);
+		}
+
+		var geojson;
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
 				map.fitBounds(e.target.getBounds());
 				var layer = e.target;
 				var ed_id = layer.feature.properties.OBJECTID;
-				var edType;
+				var edType = 1;
 				
-				if((layer.feature.properties.CONST_CODE)==null || (layer.feature.properties.CONST_CODE)==false){
-					
-					edType = 1;
-				}else{
-					
-					edType = 2;
-				}
+				
 				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', ed_id, edType);
 			}
-	
-			function onEachFeature(feature, layer) {
-				layer.on({
-					mouseover: highlightFeature,
-					mouseout: resetHighlight,
-					click: zoomToFeature
-				});
-			}
-	
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
 		geojson = L.geoJson(countyData, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
+		
+		var legend = L.control({position: 'bottomright'});
 	
-		consituencies = L.geoJson(constData, {
-			style: style,
-			onEachFeature: onEachFeature
-		});
-		var overlays = {
-			"Constituencies": consituencies,
-			"Counties": geojson
-		};
+		legend.onAdd = function (map) {
+	
+				var div = L.DomUtil.create('div', 'info legend');
+	
+				div.innerHTML ="Winning party<br /><table><tr><td style='background-color:#ff0000'>&nbsp;&nbsp;&nbsp;</td><td>Jubilee</td></tr><tr><td style='background-color:#fd8a27'>&nbsp;&nbsp;&nbsp;</td><td>Coord</td></tr></table>";
+				
+				return div;
+			};
+	
+			legend.addTo(map);
 		
-		var LeafIcon = L.Icon.extend({
-			options: {
-				shadowUrl: 'http://leafletjs.com/docs/images/leaf-shadow.png',
-				iconSize:     [38, 95],
-				shadowSize:   [50, 64],
-				iconAnchor:   [22, 94],
-				shadowAnchor: [4, 62],
-				popupAnchor:  [-3, -76]
-			}
-		});
-
-		var greenIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-green.png'}),
-			redIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-red.png'}),
-			orangeIcon = new LeafIcon({iconUrl: 'http://leafletjs.com//docs/images/leaf-orange.png'});
-
-
-
-		var cordareas = new L.LayerGroup();
-		<?php
-		foreach($cordareas as $cordarea){
-			print 'L.marker(['.$cordarea['center'].'], {icon: orangeIcon}).bindPopup("<b>'.$cordarea['EDNAME'].'</b><br />").addTo(cordareas);';
-			
-		}
-		?>
-		var jareas = new L.LayerGroup();
-		<?php
-		foreach($jubileeareas as $jarea){
-			print 'L.marker(['.$jarea['center'].'], {icon: redIcon}).bindPopup("<b>'.$jarea['EDNAME'].'</b><br />").addTo(jareas);';
-			
-		}
-		?>
-		var baseLayers = {
-			"Jubilee Won": jareas,
-			"Coord Won": cordareas
-		};
-		
-		L.control.layers(overlays, baseLayers).addTo(map);
-		</script>
+	</script>
 	
 
 	</div>
