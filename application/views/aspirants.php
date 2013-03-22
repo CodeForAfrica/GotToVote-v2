@@ -1,5 +1,4 @@
-<h2><?php echo $countyinfo['county_name']; ?> COUNTY 
-	<small> <?php echo number_format($countyinfo['registered_voters']); ?> Registered Voters</small></h2>
+	<h2><small>Candidates</small></h2>
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 	<ul class="nav nav-tabs">
@@ -14,9 +13,9 @@
 					<?php
 						$i = 1; 
 						foreach($presidential_aspirants as $candidate){ ?>
-						<div class="span4">
+						<div class="span4"<?php if($candidate['winner']=='1'){print'style="background:#d7d7d7;"';}?>>
 							<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
-							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b><?php if($candidate['winner']=='1'){print'(Winner!)';}?></p>
 							<small><?php echo $candidate['name']; ?></small>
 							<p><b>Running Mate: </b> <?php echo $candidate['running_mate']; ?></p>
 						
@@ -38,9 +37,9 @@
 		<div class="tab-pane active" id="tab2">
 			<div class="row">
 				<?php foreach($gurbernatorial_aspirants as $candidate){ ?>
-					<div class="span4">
+					<div class="span4"<?php if($candidate['winner']=='1'){print'style="background:#d7d7d7;"';}?>>
 						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
-						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b><?php if($candidate['winner']=='1'){print'(Winner!)';}?></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<p><b>Running mate: </b> <?php echo $candidate['running_mate']; ?></p>
 						<hr />
@@ -51,9 +50,9 @@
 		<div class="tab-pane" id="tab3">
 			<div class="row">
 				<?php foreach($senatorial_aspirants as $candidate){ ?>
-					<div class="span4">
+					<div class="span4"<?php if($candidate['winner']=='1'){print'style="background:#d7d7d7;"';}?>>
 						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
-						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b><?php if($candidate['winner']=='1'){print'(Winner!)';}?></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<hr />
 					</div>
@@ -63,9 +62,9 @@
 		<div class="tab-pane" id="tab4">
 			<div class="row">
 				<?php foreach($womenrep_aspirants as $candidate){ ?>
-					<div class="span4">
+					<div class="span4"<?php if($candidate['winner']=='1'){print'style="background:#d7d7d7;"';}?>>
 						<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
-						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+						<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b><?php if($candidate['winner']=='1'){print'(Winner!)';}?></p>
 						<small><?php echo $candidate['name']; ?></small>
 						<hr />
 					</div>

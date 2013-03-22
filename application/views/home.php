@@ -191,7 +191,7 @@
 		
 		
 		<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
-			<div class="span5">
+			<div class="span5" id="showwinners">
 				<h1><i class="icon-group"></i> The Candidates</h1>
 				<br />
 				<p class="lead">Select a county from the map and see the candidates from Governor, Senator and Women Representative.</p>
@@ -213,9 +213,9 @@
 					<?php
 						$i = 1; 
 						foreach($presidential_aspirants as $candidate){ ?>
-						<div class="span4">
+						<div class="span4"<?php if($candidate['winner']=='1'){print'style="background:#d7d7d7;"';}?>>
 							<img src='<?php echo $candidate['picture'];?>' style='max-height:40px;float:right;'>
-							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b></p>
+							<p><b><?php echo $candidate['surname']." ".$candidate['other_name']; ?></b><?php if($candidate['winner']=='1'){print'(Winner!)';}?></p>
 							<small> <?php echo $candidate['name']; ?></small>
 							<p><b>Running Mate: </b> <?php echo $candidate['running_mate']; ?></p>
 						
@@ -343,7 +343,7 @@
 				var edType = 1;
 				
 				
-				ajaxrequest('<?php echo base_url(); ?>home/process', 'context', 'loading', ed_id, edType);
+				ajaxrequest('<?php echo base_url(); ?>home/process', '<?php echo base_url(); ?>home/winners', ed_id, edType);
 			}
 
 		function onEachFeature(feature, layer) {

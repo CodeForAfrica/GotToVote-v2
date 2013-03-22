@@ -14,26 +14,36 @@ function get_XmlHttp() {
 }
 
 // sends data to a php file, via POST, and displays the received answer
-function ajaxrequest(php_file, tagID, loading, countyid, edType) {
+function ajaxrequest(candidates_file, winners_file, countyid, edType) {
   var request =  get_XmlHttp();		// call the function for the XMLHttpRequest instance
+  var requestwinners = get_XmlHttp();
   document.getElementById("loading").style.display = 'block';
   //document.getElementById("formstuff").style.display = 'none';
   // create pairs index=value with data that must be sent to server
   //var  the_data = 'bla='+document.getElementById('dtb').value+'&test='+document.getElementById('dta').value;
 	var the_data = 'countyid='+countyid+'&edType='+edType;
-  request.open("POST", php_file, true);			// set the request
-
+  	request.open("POST", candidates_file, true);			// set the request
+	requestwinners.open("POST", winners_file, true);
   // adds  a header to tell the PHP script to recognize the data as is sent via POST
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   request.send(the_data);		// calls the send() method with datas as parameter
 
+	requestwinners.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	requestwinners.send(the_data);
   // Check request status
   // If the response is received completely, will be transferred to the HTML tag with tagID
   request.onreadystatechange = function() {
-    if (request.readyState == 4) {
-      document.getElementById(tagID).innerHTML = request.responseText;
+   if (request.readyState == 4) {
+      document.getElementById("context").innerHTML = request.responseText;
 	  //document.getElementById(formstuff).style.display='none';
-	  document.getElementById(loading).style.display='none';
+	  document.getElementById("loading").style.display='none';
+    }
+  }
+    requestwinners.onreadystatechange = function() {
+   if (requestwinners.readyState == 4) {
+      document.getElementById("showwinners").innerHTML = requestwinners.responseText;
+	  //document.getElementById(formstuff).style.display='none';
+	  document.getElementById("loading").style.display='none';
     }
   }
 }

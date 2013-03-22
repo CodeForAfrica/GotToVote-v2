@@ -66,9 +66,72 @@ class Home extends CI_Controller {
 		$this->load->view('templates/header',$data);
 		$this->load->view('home',$data);
 		$this->load->view('templates/footer',$data);
-	}
-	
-	public function process()
+		}
+		public function winners(){
+			$countyid = $_POST['countyid'];
+			$edType = $_POST['edType'];
+			if($edType==1){
+			//find county information
+			$this->db->select('counties.OBJECTID,
+							  counties.EDNAME,
+							  voters.countyid,
+							  voters.REG,
+							  poverty.countyid,
+							  poverty.poverty_rate,
+							  winners_county.total,
+							  winners_county.countyid
+							  ');
+			$this->db->from('counties');
+			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
+			$this->db->join('poverty', 'counties.OBJECTID=poverty.countyid', 'left');
+			$this->db->join('winners_county', 'counties.OBJECTID=winners_county.countyid', 'left');
+			$this->db->where('counties.OBJECTID', $countyid);
+			$result = $this->db->get();
+			$data['countyinfo'] = $result->result_array();
+		
+			//get governor
+			$this->db->select("gurbernatorial_candidates.surname, 
+								gurbernatorial_candidates.other_name,
+								gurbernatorial_candidates.running_mate,
+								gurbernatorial_candidates.code,
+								parties.abr,
+								parties.picture");
+			$this->db->from("gurbernatorial_candidates");
+			$this->db->join("parties", "parties.id=gurbernatorial_candidates.party");
+			$this->db->where("winner", "1");
+			$this->db->where("countyid", $countyid);
+			$result = $this->db->get();
+			$data['governor'] = $result->result_array();
+			
+			//get senator
+			$this->db->select("senatorial_candidates.surname, 
+								senatorial_candidates.other_name,
+								senatorial_candidates.code,
+								parties.abr,
+								parties.picture");
+			$this->db->from("senatorial_candidates");
+			$this->db->join("parties", "parties.id=senatorial_candidates.party");
+			$this->db->where("winner", "1");
+			$this->db->where("countyid", $countyid);
+			$result = $this->db->get();
+			$data['senator'] = $result->result_array();
+			
+			//get womenrep
+			$this->db->select("womenrep_candidates.surname, 
+								womenrep_candidates.other_name,
+								womenrep_candidates.code,
+								parties.abr,
+								parties.picture");
+			$this->db->from("womenrep_candidates");
+			$this->db->join("parties", "parties.id=womenrep_candidates.party");
+			$this->db->where("winner", "1");
+			$this->db->where("countyid", $countyid);
+			$result = $this->db->get();
+			$data['womenrep'] = $result->result_array();
+			}
+		$this->load->view("winners", $data);
+		}
+		public function process()
 		{
 			
 			$countyid = $_POST['countyid'];
@@ -77,7 +140,8 @@ class Home extends CI_Controller {
 			$this->db->select('presidential_candidates.surname, 
 	                   presidential_candidates.other_name, 
 	                   presidential_candidates.running_mate,  
-	                   parties.picture, 
+	                   parties.picture,  
+                   	   presidential_candidates.winner, 
 	                   parties.name');
 			$this->db->from('presidential_candidates');
 			$this->db->join('parties', 'presidential_candidates.party= parties.id');
@@ -101,6 +165,7 @@ class Home extends CI_Controller {
 			$this->db->select('gurbernatorial_candidates.surname, 
 	                   gurbernatorial_candidates.other_name, 
 	                   gurbernatorial_candidates.running_mate,  
+	                   gurbernatorial_candidates.winner,  
 	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('gurbernatorial_candidates');
@@ -114,6 +179,7 @@ class Home extends CI_Controller {
 			$this->db->select('senatorial_candidates.surname, 
 	                   senatorial_candidates.other_name, 
 	                   senatorial_candidates.running_mate,  
+	                   senatorial_candidates.winner,
 	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('senatorial_candidates');
@@ -126,7 +192,8 @@ class Home extends CI_Controller {
 			//find womenrep aspirants
 			$this->db->select('womenrep_candidates.surname, 
 	                   womenrep_candidates.other_name, 
-	                   womenrep_candidates.running_mate,  
+	                   womenrep_candidates.running_mate, 
+	                   womenrep_candidates.winner, 
 	                   parties.picture,  
 	                   parties.name');
 			$this->db->from('womenrep_candidates');
