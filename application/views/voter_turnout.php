@@ -4,6 +4,7 @@
 		<style>
 		body{
 			margin:0 !important;
+			margin-bottom:-8px;
 		}
 			#map {
 				/*width: inherit;*/

@@ -139,38 +139,6 @@ class Home extends CI_Controller {
 			}
 		$this->load->view("winners", $data);
 		}
-		public function voter_turnout(){
-			//get voter turnout
-			$this->db->select('counties.OBJECTID,
-							   counties.geometry,
-							   counties.EDNAME,
-							   counties.ref,
-							   counties.type,
-							   voters.countyid,
-							   voters.VALID,
-							   voters.REG');
-			$this->db->from('counties');
-			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
-			$result = $this->db->get();
-			$data['voter_turnout'] = $result->result_array();
-			$this->load->view('voter_turnout', $data);			
-		}
-		public function voter_registration(){
-			//get registered voters 
-			$this->db->select('counties.OBJECTID,
-							   counties.geometry,
-							   counties.EDNAME,
-							   counties.ref,
-							   counties.type,
-							   voters.countyid,
-							   voters.VALID,
-							   voters.REG');
-			$this->db->from('counties');
-			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
-			$result = $this->db->get();
-			$data['voter_registration'] = $result->result_array();
-			$this->load->view('voter_registration', $data);			
-		}
 		public function process()
 		{
 			

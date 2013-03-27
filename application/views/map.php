@@ -36,7 +36,7 @@
 			</div></div>
 			<div id="mapscript" style="border: 1px solid #e5e5e5;">
 			<div id="votereg_map">
-				<iframe src="http://localhost/ElectionsToolkit/Home/voter_turnout" frameborder="0" scrolling="no" style="min-height:500px;width:100%;padding:0;margin:0;"></iframe>
+				<iframe src="http://localhost/ElectionsToolkit/Voter_turnout" frameborder="0" scrolling="no" style="min-height:500px;width:100%;padding:0;margin:0;"></iframe>
 			</div>
 			<script type="text/javascript">document.getElementById("votereg_map").style.display='none';</script>
 			<div id="results_map">
@@ -239,12 +239,13 @@
 
 	</script>
 	</div>
+	<div style="text-align:center">
+		<a href="<?php echo base_url();?>assets/dataset.csv"><button class="btn"><i class="icon-download"></i>Download Dataset</button></a>
+	</div>
 	</div>
 			</div>
 		</div>
 		<script type="text/javascript">document.getElementById("loading").style.display = 'none';</script>
-	<script type="text/javascript">document.getElementById("map2").style.display = 'none';</script>
-	
 		<div id="context" style="text-align: left;">
 			<h2>Presidential Candidates</h2>
 			<div class="row">
