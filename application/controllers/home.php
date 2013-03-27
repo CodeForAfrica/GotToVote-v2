@@ -27,6 +27,13 @@ class Home extends CI_Controller {
 		$countydata = $this->db->get();
 		$data['countydata'] = $countydata->result_array();
 		
+		//get voting rates dataset
+		$this->db->select('*');
+		$this->db->from('counties');
+		$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
+		$voterdata = $this->db->get();
+		$data['voterdata'] = $voterdata->result_array();
+		
 		//show cord areas
 		$this->db->select('*');
 		$this->db->from('winners_county');
@@ -65,9 +72,10 @@ class Home extends CI_Controller {
 		
 		$this->load->view('templates/header',$data);
 		$this->load->view('home',$data);
+		$this->load->view('map', $data);
 		$this->load->view('templates/footer',$data);
 		}
-		public function winners(){
+	public function winners(){
 			$countyid = $_POST['countyid'];
 			$edType = $_POST['edType'];
 			if($edType==1){
@@ -79,8 +87,8 @@ class Home extends CI_Controller {
 							  poverty.countyid,
 							  poverty.poverty_rate,
 							  winners_county.total,
-							  winners_county.countyid
-							  ');
+							  winners_county.countyid,
+							  winners_county.candidate');
 			$this->db->from('counties');
 			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
 			$this->db->join('poverty', 'counties.OBJECTID=poverty.countyid', 'left');
@@ -130,6 +138,38 @@ class Home extends CI_Controller {
 			$data['womenrep'] = $result->result_array();
 			}
 		$this->load->view("winners", $data);
+		}
+		public function voter_turnout(){
+			//get voter turnout
+			$this->db->select('counties.OBJECTID,
+							   counties.geometry,
+							   counties.EDNAME,
+							   counties.ref,
+							   counties.type,
+							   voters.countyid,
+							   voters.VALID,
+							   voters.REG');
+			$this->db->from('counties');
+			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
+			$result = $this->db->get();
+			$data['voter_turnout'] = $result->result_array();
+			$this->load->view('voter_turnout', $data);			
+		}
+		public function voter_registration(){
+			//get registered voters 
+			$this->db->select('counties.OBJECTID,
+							   counties.geometry,
+							   counties.EDNAME,
+							   counties.ref,
+							   counties.type,
+							   voters.countyid,
+							   voters.VALID,
+							   voters.REG');
+			$this->db->from('counties');
+			$this->db->join('voters', 'counties.OBJECTID=voters.countyid');
+			$result = $this->db->get();
+			$data['voter_registration'] = $result->result_array();
+			$this->load->view('voter_registration', $data);			
 		}
 		public function process()
 		{
@@ -228,10 +268,7 @@ class Home extends CI_Controller {
 			$data['nationalassembly_aspirants'] = $result->result_array();
 			$this->load->view('natassembly', $data);
 			}
-			
-			
 		}
 }
-
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

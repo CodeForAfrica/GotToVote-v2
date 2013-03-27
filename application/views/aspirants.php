@@ -1,5 +1,4 @@
-	<h2><small>Candidates</small></h2>
-
+<h2><small>All Candidates</small></h2>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 	<ul class="nav nav-tabs">
 		<li><a href="#tab1" data-toggle="tab"><h4 style="margin: 0;">Presidential Candidates</h4></a></li>

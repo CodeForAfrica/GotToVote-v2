@@ -29,7 +29,9 @@
 	$countyinfo = $countyinfo[0];
 	$voterturnout = (($countyinfo['total']/$countyinfo['REG'])*100);
 	print "<h2>".ucwords(strtolower($countyinfo['EDNAME']))." County</h2>";
-	print "<div class='stronghold' style='width:20px;height:20px;float:right;background:#000000'></div>";
+	print "<div class='stronghold' style='width:50px;height:50px;float:right;";
+	if($countyinfo['candidate']=='2'){print "background-color:#ff0000;'";}else{print "background-color:#fd8a27;'";}
+	print "'></div>";
 	print "Registered voters: ".$countyinfo['REG'];
 	print "<br />";
 	print "Voter turnout: ".number_format($voterturnout, 2)."%<br />";

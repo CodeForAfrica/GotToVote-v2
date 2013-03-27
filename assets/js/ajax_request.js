@@ -12,7 +12,6 @@ function get_XmlHttp() {
 
   return xmlHttp;
 }
-
 // sends data to a php file, via POST, and displays the received answer
 function ajaxrequest(candidates_file, winners_file, countyid, edType) {
   var request =  get_XmlHttp();		// call the function for the XMLHttpRequest instance
@@ -32,7 +31,7 @@ function ajaxrequest(candidates_file, winners_file, countyid, edType) {
 	requestwinners.send(the_data);
   // Check request status
   // If the response is received completely, will be transferred to the HTML tag with tagID
-  request.onreadystatechange = function() {
+  	request.onreadystatechange = function() {
    if (request.readyState == 4) {
       document.getElementById("context").innerHTML = request.responseText;
 	  //document.getElementById(formstuff).style.display='none';

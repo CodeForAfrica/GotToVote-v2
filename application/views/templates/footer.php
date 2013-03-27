@@ -1,3 +1,72 @@
+<!-- Scripts -->
+<!-- Countdown Timer -->
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jbclock.js"></script>
+<script type="text/javascript">
+	var startD = Date.parse("Dec 18 2012 18:00:00 GMT+0300 (EAT)")/1000;
+	var endD = Date.parse("Mar 4 2013 08:00:00 GMT+0300 (EAT)")/1000;
+	
+	var nowD = Date.parse(new Date())/1000;
+	var testD = new Date();
+	
+	$(document).ready(function(){
+	    JBCountDown({
+	        secondsColor : "#FFF",
+	        secondsGlow  : "none",
+	        
+	        minutesColor : "#39b54a",
+	        minutesGlow  : "none",
+	        
+	        hoursColor   : "#ec3535",
+	        hoursGlow    : "none",
+	        
+	        daysColor    : "#333",
+	        daysGlow     : "none",
+	        
+	        startDate   : startD,
+	        endDate     : endD,
+	        now         : nowD,
+	        seconds     : "00"
+	    });
+	});
+</script>
+<!-- SMS script -->
+<script type="text/javascript">
+	var base_url = "<?php echo base_url(); ?>";
+</script>
+<script src="<? echo base_url(); ?>assets/js/sms.js" type="text/javascript"></script>
+<!-- Scroll -->
+<script type="text/javascript">
+	function goToByScroll(id){
+	      // Remove "link" from the ID
+	    id = id.replace("link", "");
+	      // Scroll
+	    $('html,body').animate({
+	        scrollTop: $("#"+id).offset().top},
+	        'slow');
+	}
+	
+	$("#findlink").click(function(e) { 
+	      // Prevent a page reload when a link is pressed
+	    e.preventDefault(); 
+	      // Call the scroll function
+	    goToByScroll($(this).attr("id"));           
+	});
+	$("#smslink").click(function(e) { 
+	      // Prevent a page reload when a link is pressed
+	    e.preventDefault(); 
+	      // Call the scroll function
+	    goToByScroll($(this).attr("id"));           
+	});
+</script>
+<!-- Find Registration Centre -->
+<script type="text/javascript">
+ 	function showMap() {
+ 		$('#iebcMap').fadeOut('slow');
+ 		$('#iebcMap').html('<iframe src="http://vote.iebc.or.ke/gadget/" width="100%" height="552" frameborder="0" scrolling="No" rightmargin="0" bottommargin="0" topmargin="0" leftmargin="0" marginwidth="0" allowtransparency="allowtransparency" border="0" marginheight="0"></iframe>');
+ 		$('#iebcMap').fadeIn('slow');
+ 	}
+</script>
+
 <div class="container">
 	<hr style="margin: 50px 0;"/>
 
