@@ -22,7 +22,7 @@
 		            </ul>	
 	                </li>
 	                <li style='margin-bottom:10px;'>
-						<a class="btn btn-large btn-success homebtn" href="http://gottovote.code4kenya.org/" target='_blank'><i class="icon-search icon-white"></i> Registration Centers</a>
+						<a class="btn btn-large btn-success homebtn" href="<?php echo base_url()?>reg_centers"><i class="icon-search icon-white"></i> Registration Centers</a>
 					</li>
 				</ul>
 			</div>
