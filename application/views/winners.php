@@ -56,4 +56,14 @@
 	print "<div class='winner_pane'><div class='winner_img'><img src='http://api.iebc.or.ke/images/candidate/".$womenrep['code'].".jpg' width='40px'></div>";
 	print "<div class='winner_names'>".$womenrep['surname'].' '.$womenrep['other_name']."</div>";
 	print "<div class='winner_party'><img src='".$womenrep['picture']."' width='40px'></div></div>";
+	
+	//show national assembly winners
+	print "<h3>National Assembly</h3>";
+	print "<div>
+	<ul style='list-style:none;padding:0;margin:0'>";
+	foreach($nationalassembly as $mp){
+		print "<li><b>".$mp['name'].'</b>: '.$mp['surname']." ".$mp['other_name']." (".$mp['abr'].")</li>";
+	}	
+	print "</ul>
+	</div>";
 ?>

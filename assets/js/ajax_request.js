@@ -1,16 +1,16 @@
 // create the XMLHttpRequest object, according browser
 function get_XmlHttp() {
-  // create the variable that will contain the instance of the XMLHttpRequest object (initially with null value)
-  var xmlHttp = null;
+	  // create the variable that will contain the instance of the XMLHttpRequest object (initially with null value)
+	  var xmlHttp = null;
 
-  if(window.XMLHttpRequest) {		// for Forefox, IE7+, Opera, Safari, ...
-    xmlHttp = new XMLHttpRequest();
-  }
-  else if(window.ActiveXObject) {	// for Internet Explorer 5 or 6
-    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-  }
+	  if(window.XMLHttpRequest) {		// for Forefox, IE7+, Opera, Safari, ...
+		xmlHttp = new XMLHttpRequest();
+	  }
+	  else if(window.ActiveXObject) {	// for Internet Explorer 5 or 6
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	  }
 
-  return xmlHttp;
+	return xmlHttp;
 }
 // sends data to a php file, via POST, and displays the received answer
 function ajaxrequest(candidates_file, winners_file, countyid, edType) {

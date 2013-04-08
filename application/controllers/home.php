@@ -75,6 +75,7 @@ class Home extends CI_Controller {
 		$this->load->view('map', $data);
 		$this->load->view('templates/footer',$data);
 		}
+
 	public function winners(){
 			$countyid = $_POST['countyid'];
 			$edType = $_POST['edType'];
@@ -137,10 +138,26 @@ class Home extends CI_Controller {
 			$result = $this->db->get();
 			$data['womenrep'] = $result->result_array();
 			}
-		$this->load->view("winners", $data);
-		}
-		public function process()
-		{
+			//get national assembly winners
+			$this->db->select("nationalassembly_candidates.surname,
+								nationalassembly_candidates.other_name,
+								nationalassembly_candidates.code,
+								parties.abr,
+								parties.picture,
+								constituency.name");
+			$this->db->from("nationalassembly_candidates");
+			$this->db->join("parties", "parties.id=nationalassembly_candidates.party");
+			$this->db->join("constituency", "constituency.id=nationalassembly_candidates.constituency", "left");
+			$this->db->where("winner", "1");
+			$this->db->where("countyid", $countyid);
+			$result = $this->db->get();
+			$data['nationalassembly'] = $result->result_array();
+									
+			$this->load->view("winners", $data);
+			}
+
+			public function process()
+			{
 			
 			$countyid = $_POST['countyid'];
 			$edType = $_POST['edType'];

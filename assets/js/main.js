@@ -42,7 +42,7 @@ county_sel.onchange = function () {
 		header_name.innerHTML = unescape(toTitleCase(escape(county_sel.options[county_sel.selectedIndex].innerHTML)))+" County";
 		
 		$("#reg-centres").html("<tr><td>"+
-			"<p><img src=\"img/spinner.gif\" alt=\"\" />"+
+			"<p><img src=\"assets/img/spinner.gif\" alt=\"\" />"+
 			"Finding registration centres...</p></td></tr>");
 		$("#found-reg").slideDown('fast');
 		
