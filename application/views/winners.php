@@ -58,9 +58,9 @@
 	print "<div class='winner_party'><img src='".$womenrep['picture']."' width='40px'></div></div>";
 	
 	//show national assembly winners
-	print "<h3>National Assembly</h3>";
+	print "<h4>National Assembly</h4>";
 	print "<div>
-	<ul style='list-style:none;padding:0;margin:0'>";
+	<ul style='font-size:0.8em;list-style:none;padding:0;margin:0'>";
 	foreach($nationalassembly as $mp){
 		print "<li><b>".$mp['name'].'</b>: '.$mp['surname']." ".$mp['other_name']." (".$mp['abr'].")</li>";
 	}	
