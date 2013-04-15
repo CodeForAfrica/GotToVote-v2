@@ -40,6 +40,11 @@ All the data used on <b>GotToVote</b>! is freely available on another <a href="h
         			<a href="https://github.com/OpenInstitute/ElectionsToolkit/tree/GotToVote-dev" style="text-align: center;" class="btn btn-large" target="_blank">
         				Open Source<small></small>
         			</a>
+        			<div class="attribution">
+        					<div class="text">
+        						All election data has been obtained from the <a href="http://iebc.or.ke">IEBC</a> API and downloads page
+        					</div>
+        			</div>
         			</p>
         		</div>
         	</div>
