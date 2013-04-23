@@ -542,5 +542,5 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
   php_value session.cookie_httponly true
 </IfModule>
 
-RewriteCond $1 !^(index\.php|images|robots\.txt|humans\.txt|assets|favicon\.ico)
+RewriteCond $1 !^(index\.php|images|robots\.txt|humans\.txt|assets|install|install\.sql|favicon\.ico)
 RewriteRule ^(.*)$ /ElectionsToolkit/index.php/$1 [L]

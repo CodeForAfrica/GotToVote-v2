@@ -36,5 +36,16 @@ class User_model extends CI_Model {
   );
   $this->db->insert('user',$data);
  }
+ public function add_user_admin()
+ {
+  $data=array(
+    'username'=>$this->input->post('user_name'),
+    'email'=>$this->input->post('email_address'),
+    'password'=>md5($this->input->post('password')),
+	'isadmin'=>'1',
+	'role'=>'1'
+  );
+  $this->db->insert('user',$data);
+ }
 }
 ?>

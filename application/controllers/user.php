@@ -18,6 +18,14 @@ class User extends CI_Controller{
    $this->load->view('admin/footer',$data);
   }
  }
+ public function admin_account(){
+	//perform check if account already exists
+	
+	$data['page_title'] = 'Create Admin Account';
+	$this->load->view('admin/header', $data);
+	$this->load->view('admin/admin_account.php', $data);
+	$this->load->view('admin/footer', $data);
+ }
  public function login()
  {
   $email=$this->input->post('email');
@@ -51,6 +59,25 @@ class User extends CI_Controller{
   {
    $this->user_model->add_user();
    $this->thank();
+  }
+ }
+  public function admin_registration()
+ {
+  $this->load->library('form_validation');
+  // field name, error message, validation rules
+  $this->form_validation->set_rules('user_name', 'User Name', 'trim|required|min_length[4]|xss_clean');
+  $this->form_validation->set_rules('email_address', 'Your Email', 'trim|required|valid_email');
+  $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[4]|max_length[32]');
+  $this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
+
+  if($this->form_validation->run() == FALSE)
+  {
+   $this->index();
+  }
+  else
+  {
+   $this->user_model->add_user_admin();
+   redirect('/admin');
   }
  }
  public function logout()
