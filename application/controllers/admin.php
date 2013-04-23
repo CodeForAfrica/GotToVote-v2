@@ -13,6 +13,10 @@ class Admin extends CI_Controller {
        
 	public function index()
 	{
+		$modules = array();
+		$this->load->model('check_modules');
+		$data['installed'] = $this->check_modules->installed_admin($modules);
+		
 			$data['page_title'] = 'Admin Dashboard';		
 			$this->load->view('admin/header_admin',$data);
 			$this->load->view('admin/admin', $data);
@@ -26,6 +30,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/add_user', $data);
 		$this->load->view('admin/footer', $data);
 		
+	}
+	public function activate_modules(){
+		$this->load->model('check_modules');
+		//$this->load->library('form_validation');
+
+		//if($this->form_validation->run() == TRUE)
+		//{
+		   $this->check_modules->manage_modules();
+		  
+		//}
+		$this->index();
 	}
 
 }
