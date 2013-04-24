@@ -17,6 +17,9 @@ class Check_modules extends CI_Model {
 	if($this->isactive('reg_centers')){
 			$this->reg_centers->view_centers();
 		}
+	if($this->isactive('voter_turnout')){
+			$this->load->view('voters');
+		}
  }
  public function isActive($module){
 	$this->db->select('*');
@@ -88,6 +91,38 @@ public function create_module_tables($module){
 	if($module=='sms'){
 	$this->create_sms_tables();
 	}
+	if($module=='voter_turnout'){
+	$this->create_voter_turnout_tables();
+	}
+	if($module=='aspirants'){
+	$this->create_aspirants_tables();
+	}
+}
+public function create_aspirants_tables(){
+
+}
+public function create_voter_turnout_tables(){
+	$this->db->query("CREATE TABLE IF NOT EXISTS `counties` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `OBJECTID` text NOT NULL,
+  `OBJECTID_1` text NOT NULL,
+  `EDNAME` text NOT NULL,
+  `COUNTY_COD` text NOT NULL,
+  `Shape_Leng` text NOT NULL,
+  `Shape_Area` text NOT NULL,
+  `geometry` text NOT NULL,
+  `type` varchar(20) NOT NULL DEFAULT 'Polygon',
+  `ref` int(2) NOT NULL,
+  `center` text NOT NULL,
+  PRIMARY KEY (`id`)
+)");	
+	$this->db->query("CREATE TABLE IF NOT EXISTS `voters` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `countyid` text NOT NULL,
+  `REG` text NOT NULL,
+  `VALID` int(9) NOT NULL,
+  PRIMARY KEY (`id`)
+)");	
 }
 public function create_sms_tables(){
 		$this->db->query("CREATE TABLE IF NOT EXISTS `sms_recipient` (

@@ -2,7 +2,7 @@
 	
 	<a name="find" id="find"></a>
 	<div style="text-align: center;">	
-		<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
+		<div class="row" style="display: inline-block; text-align: left; margin-bottom: 10px;">
 			
 			<div class="span5">
 				<div id="loading" align='center'>
@@ -28,12 +28,12 @@
 				
 			</script>
 			<div style="text-align:center">
-			<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;margin-bottom:5px;text-align:center">
-			<button type="button" class="btn active" onclick="show_results();">
-			<i class="icon-check"></i> <b>Election Results</b></button>
+			<!--<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;margin-bottom:5px;text-align:center">
+			<button type="button" class="btn active" onclick="show_results();">-->
+			<i class="icon-check"></i> <b>Election Results</b><!--</button>
 			<button type="button" class="btn" onclick="show_votereg();">
 			<i class="icon-signal"></i> <b>Voter Turnout</b></button>
-			</div></div>
+			</div></div>-->
 			<div id="mapscript" style="border: 1px solid #e5e5e5;">
 			<div id="votereg_map">
 				<iframe src="<?php echo base_url();?>voter_turnout" frameborder="0" scrolling="no" style="min-height:500px;width:100%;padding:0;margin:0;"></iframe>
