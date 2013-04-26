@@ -5,14 +5,14 @@ class Check_modules extends CI_Model {
   parent::__construct();
  }
  public function load_installed_modules(){
-	$this->load->model('map');
+	$this->load->model('aspirants');
 	$this->load->model('reg_centers');
 	if($this->isactive('sms')){
 		//load sms
 			$this->load->view('sms');
 		}
 	if($this->isactive('aspirants')){
-			$this->map->load_map();
+			$this->aspirants->load_candidates();
 		}
 	if($this->isactive('reg_centers')){
 			$this->reg_centers->view_centers();
@@ -99,7 +99,25 @@ public function create_module_tables($module){
 	}
 }
 public function create_aspirants_tables(){
-
+	$this->db->query("CREATE TABLE IF NOT EXISTS `presidential_candidates` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `surname` varchar(30) NOT NULL,
+  `other_name` varchar(50) NOT NULL,
+  `code` varchar(300) NOT NULL,
+  `party` int(2) NOT NULL,
+  `running_mate` varchar(100) NOT NULL,
+  `contest_id` varchar(100) NOT NULL,
+  `winner` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+)");
+	$this->db->query("CREATE TABLE IF NOT EXISTS `parties` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL,
+  `abr` varchar(10) NOT NULL,
+  `picture` varchar(100) NOT NULL,
+  `code` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+)");
 }
 public function create_voter_turnout_tables(){
 	$this->db->query("CREATE TABLE IF NOT EXISTS `counties` (
