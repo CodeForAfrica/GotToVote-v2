@@ -4,7 +4,17 @@ class Sampledata extends CI_Controller {
 
 	public function index()
 	{
-		print_r($_GET);
+	$this->load->model('sample_data');
+		$module = $_GET['module'];
+		
+		if($this->sample_data->is_installed($module)){
+			print "sample data already installed";
+		}
+		else{
+			if($this->sample_data->install($module)){
+				print "sample data installed";
+			}
+		}
 	}
 	
 	

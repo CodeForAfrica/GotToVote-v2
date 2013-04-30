@@ -12,7 +12,7 @@ class Check_modules extends CI_Model {
 			$this->load->view('sms');
 		}
 	if($this->isactive('aspirants')){
-			$this->aspirants->load_candidates();
+			$this->aspirants->load_aspirants();
 		}
 	if($this->isactive('reg_centers')){
 			$this->reg_centers->view_centers();
@@ -99,6 +99,15 @@ public function create_module_tables($module){
 	}
 }
 public function create_aspirants_tables(){
+	$this->db->query("CREATE TABLE IF NOT EXISTS `winners_county` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `countyid` int(3) NOT NULL,
+  `candidate` int(2) NOT NULL,
+  `2` int(9) NOT NULL,
+  `8` int(9) NOT NULL,
+  `total` text NOT NULL,
+  PRIMARY KEY (`id`)
+)");
 	$this->db->query("CREATE TABLE IF NOT EXISTS `presidential_candidates` (
   `id` int(2) NOT NULL AUTO_INCREMENT,
   `surname` varchar(30) NOT NULL,
@@ -118,6 +127,62 @@ public function create_aspirants_tables(){
   `code` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
 )");
+	$this->db->query("CREATE TABLE IF NOT EXISTS `gurbernatorial_candidates` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `countyid` int(3) NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  `other_name` varchar(50) NOT NULL,
+  `code` varchar(300) NOT NULL,
+  `party` int(2) NOT NULL,
+  `running_mate` varchar(100) NOT NULL,
+  `picture` varchar(50) NOT NULL,
+  `contest_id` varchar(100) NOT NULL,
+  `county` varchar(50) NOT NULL,
+  `winner` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+)");
+	$this->db->query("CREATE TABLE IF NOT EXISTS `senatorial_candidates` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `countyid` int(2) NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  `other_name` varchar(50) NOT NULL,
+  `code` varchar(300) NOT NULL,
+  `party` int(2) NOT NULL,
+  `running_mate` varchar(100) NOT NULL,
+  `picture` varchar(50) NOT NULL,
+  `contest_id` varchar(100) NOT NULL,
+  `county` varchar(50) NOT NULL,
+  `winner` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+)");
+	$this->db->query("CREATE TABLE IF NOT EXISTS `womenrep_candidates` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `countyid` int(2) NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  `other_name` varchar(50) NOT NULL,
+  `code` varchar(300) NOT NULL,
+  `party` int(2) NOT NULL,
+  `running_mate` varchar(100) NOT NULL,
+  `picture` varchar(50) NOT NULL,
+  `contest_id` varchar(100) NOT NULL,
+  `county` varchar(50) NOT NULL,
+  `winner` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+)");
+	$this->db->query("CREATE TABLE IF NOT EXISTS `counties` (
+  `id` int(2) NOT NULL AUTO_INCREMENT,
+  `OBJECTID` text NOT NULL,
+  `OBJECTID_1` text NOT NULL,
+  `EDNAME` text NOT NULL,
+  `COUNTY_COD` text NOT NULL,
+  `Shape_Leng` text NOT NULL,
+  `Shape_Area` text NOT NULL,
+  `geometry` text NOT NULL,
+  `type` varchar(20) NOT NULL DEFAULT 'Polygon',
+  `ref` int(2) NOT NULL,
+  `center` text NOT NULL,
+  PRIMARY KEY (`id`)
+)");	
 }
 public function create_voter_turnout_tables(){
 	$this->db->query("CREATE TABLE IF NOT EXISTS `counties` (

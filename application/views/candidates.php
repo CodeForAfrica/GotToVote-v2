@@ -1,8 +1,8 @@
- <div class="container">
+<div class="container">
 	
 	<a name="find" id="find"></a>
 	<div style="text-align: center;">	
-		<div class="row" style="display: inline-block; text-align: left; margin-bottom: 10px;">
+		<div class="row" style="display: inline-block; text-align: left; margin-bottom: 20px;">
 			
 			<div class="span5">
 				<div id="loading" align='center'>
@@ -16,10 +16,23 @@
 				</div>
 			</div>
 			<div class="span7">
+			<script type="text/javascript">
+				function show_votereg(){
+					document.getElementById('results_map').style.display = 'none';
+					document.getElementById('votereg_map').style.display = 'block';
+				}
+				function show_results(){
+					document.getElementById('results_map').style.display = 'block';
+					document.getElementById('votereg_map').style.display = 'none';
+				}
+				
+			</script>
 			<div style="text-align:center">
-			<i class="icon-check"></i> <b>Election Results</b>
+			<div class="btn-group" data-toggle="buttons-radio" style="display: inline-block;margin-bottom:5px;text-align:center">
+			<button type="button" class="btn active" onclick="show_results();">
+			<i class="icon-check"></i> <b>Election Results</b></button>
+			</div></div>
 			<div id="mapscript" style="border: 1px solid #e5e5e5;">
-			<script type="text/javascript">document.getElementById("votereg_map").style.display='none';</script>
 			<div id="results_map">
 			<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/leaflet.css" />
 			<!--[if lte IE 8]><link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/leaflet.ie.css" /><![endif]-->
@@ -76,13 +89,14 @@
 		"type": "FeatureCollection",                                                                      
 		"features": [';
 		$data2 = array();
+
 		foreach($cordarea as $county){
 			$voterturnout = (($county['total']/$county['REG'])*100);
-			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": {"OBJECTID": '.$county['OBJECTID'].', "WINNER":8, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%", "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
+			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": {"OBJECTID": '.$county['OBJECTID'].', "WINNER":8, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
 		}
 		foreach($jubileearea as $county){
 			$voterturnout = (($county['total']/$county['REG'])*100);
-			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": {"OBJECTID": '.$county['OBJECTID'].', "WINNER":2, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%", "POVERTY":"'.$county['poverty_rate'].'"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
+			$data2[]= '{ "type": "Feature", "id": '.$county['ref'].', "properties": {"OBJECTID": '.$county['OBJECTID'].', "WINNER":2, "EDNAME": "'.$county['EDNAME'].'", "REG":'.$county['REG'].', "TURNOUT": "'.number_format($voterturnout, 2).'%"}, "geometry": { "type": "'.$county['type'].'", "coordinates": [['.$county['geometry'].']]}}';	
 		}
 		
 		$data2 = implode(',', $data2);
@@ -120,7 +134,7 @@
 		
 			info.update = function (props) {
 				this._div.innerHTML = '<h4>County Information</h4>' +  (props ?
-					'<b>' + props.EDNAME + '</b><br />Registered voters: ' + commaSeparateNumber(props.REG)+'<br>Voter Turnout: '+props.TURNOUT+'<br>Poverty Rate: '+props.POVERTY : 'Hover over a region');
+					'<b>' + props.EDNAME + '</b><br />Registered voters: ' + commaSeparateNumber(props.REG)+'<br>Voter Turnout: '+props.TURNOUT : 'Hover over a region');
 			};
 	
 			info.addTo(map);
@@ -240,5 +254,3 @@
 			</div>
 		
 		</div>
-	</div>
-</div>

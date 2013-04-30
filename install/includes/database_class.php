@@ -58,6 +58,7 @@ $query4 = "CREATE TABLE IF NOT EXISTS `modules` (
   `id` int(1) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `active` int(1) NOT NULL DEFAULT '0',
+  `sampledata` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ";
 $query5 = "INSERT INTO `modules` (`id`, `name`, `active`) VALUES
